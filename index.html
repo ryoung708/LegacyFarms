@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Farms | Hyper-Local Microgreens</title>
+    <style>
+        :root { 
+            --primary: #2e7d32; 
+            --dark: #1b5e20; 
+            --border-color: #333333;
+            --bg-light: #fcfdfa; 
+            --text-main: #111111; 
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg-light); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 10px;
+        }
+        .outer-border {
+            border: 2px solid var(--border-color);
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 30px 20px;
+        }
+        header { 
+            text-align: center; 
+            padding-bottom: 30px; 
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        /* Chef Card Serif Lettering */
+        h1 { 
+            font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+            font-size: 3rem; 
+            font-weight: 400;
+            color: var(--text-main); 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 5px 0; 
+        }
+        h2 {
+            font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        .logo-sub { 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: var(--primary); 
+            font-weight: 700; 
+        }
+        .hook { 
+            font-size: 1.15rem; 
+            font-weight: 500; 
+            max-width: 650px; 
+            margin: 20px auto 25px auto; 
+            color: #333333; 
+            font-style: italic;
+        }
+        .btn-group {
+            margin-top: 20px;
+        }
+        .btn { 
+            display: inline-block; 
+            background-color: var(--text-main); 
+            color: white; 
+            text-decoration: none; 
+            padding: 14px 28px; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem; 
+            border: 1px solid var(--text-main);
+            transition: all 0.2s ease;
+        }
+        .btn-sec { 
+            display: inline-block; 
+            background-color: transparent; 
+            color: #555555; 
+            text-decoration: none; 
+            padding: 10px 20px; 
+            font-weight: 600; 
+            border: 1px solid #cccccc; 
+            margin-top: 10px; 
+            font-size: 0.85rem; 
+        }
+        .grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+        }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        .card { 
+            border: 1px solid var(--border-color); 
+            padding: 20px; 
+            background: #ffffff; 
+        }
+        .card h3 { 
+            font-family: "Times New Roman", Times, Georgia, serif;
+            color: var(--text-main); 
+            margin-bottom: 10px; 
+            text-transform: uppercase;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+        }
+        ul { list-style-type: none; }
+        li { margin-bottom: 6px; padding-left: 15px; position: relative; font-size: 0.95rem; }
+        li::before { content: "▪"; color: var(--primary); position: absolute; left: 0; font-size: 0.8rem; }
+        .recipe-title { font-weight: 700; color: var(--text-main); margin-bottom: 4px; font-size: 1rem; }
+        footer { 
+            border-top: 1px solid var(--border-color);
+            text-align: center; 
+            padding-top: 25px; 
+            margin-top: 50px; 
+            font-size: 0.85rem; 
+        }
+        .footer-slogan {
+            font-family: "Times New Roman", Times, Georgia, serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #444444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="outer-border">
+        <header>
+            <p class="logo-sub">Tomorrow's Harvest, Grown Locally Today</p>
+            <h1>Legacy Farms</h1>
+            <p class="hook">Hyper-local, organic microgreens harvested fresh and delivered to your doorstep. Up to 40x more nutrients than regular veggies!</p>
+            
+            <div class="btn-group">
+                <!-- PASTE YOUR ACTUAL GOOGLE FORM URLS INSIDE THE QUOTES BELOW -->
+                <a href="PASTE_YOUR_SIGNUP_FORM_LINK_HERE" class="btn">Secure Your Porch Spot</a>
+                <br>
+                <a href="PASTE_YOUR_FEEDBACK_FORM_LINK_HERE" class="btn-sec">Leave Farm Feedback</a>
+            </div>
+        </header>
+
+        <h2>Our Superfood Varieties</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🌻 Crunchy Sunflower Shoots</h3>
+                <ul>
+                    <li><strong>Taste:</strong> Nutty, crisp, and robust</li>
+                    <li>20-25% Complete Plant Protein</li>
+                    <li>50% Daily Value of Vitamin E</li>
+                    <li>Rich in natural energy-giving iron</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🌱 Sweet Pea Shoots</h3>
+                <ul>
+                    <li><strong>Taste:</strong> Sweet, just like crisp snap peas</li>
+                    <li>7x More Vitamin C than blueberries</li>
+                    <li>4x More Vitamin A than tomatoes</li>
+                    <li>High in bone-building Vitamin K</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>⚡ Quick Ways to Eat Your Greens</h2>
+        <div class="grid">
+            <div class="card">
+                <p class="recipe-title">🥤 The 5-Second Smoothie Boost</p>
+                <p style="font-size: 0.9rem; color: #444;">Toss a heavy handful of Sweet Pea shoots directly into your morning fruit blender. It adds a subtle sweet note and completely vanishes inside the blend while packing a massive antioxidant punch.</p>
+            </div>
+            <div class="card">
+                <p class="recipe-title">🥪 The Premium Sandwich Crunch</p>
+                <p style="font-size: 0.9rem; color: #444;">Ditch soggy iceberg lettuce. Layer a thick bedding of thick, nutty Sunflower shoots inside your wraps, burgers, or turkey sandwiches for an unbeatably fresh crisp that won't wilt.</p>
+            </div>
+            <div class="card">
+                <p class="recipe-title">🥗 The Ultimate 2-Minute Base Salad</p>
+                <p style="font-size: 0.9rem; color: #444;">Mix equal parts Sunflower and Pea shoots into a bowl, toss lightly with cherry tomatoes, a splash of olive oil, and simple balsamic dressing for a nutrient-dense gourmet side salad.</p>
+            </div>
+            <div class="card">
+                <p class="recipe-title">🍕 Dinner & Pizza Toppers</p>
+                <p style="font-size: 0.9rem; color: #444;">Right before serving hot dinners, throw a raw crop over steak, tacos, or hot take-out pizza. The ambient heat gently softens the stems without soaking away vital live enzymes.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p class="footer-slogan">"We're not just growing greens, we're growing community."</p>
+            <p style="font-weight: 600;">© 2026 Legacy Farms - McCordsville, IN</p>
+            <p style="font-size: 0.8rem; color: #666666; margin-top: 5px;">Indiana Home-Based Vendor Compliant • Direct-To-Consumer Delivery Only</p>
+        </footer>
+    </div>
+
+</body>
+</html>
