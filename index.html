@@ -33,7 +33,6 @@
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 30px;
         }
-        /* Chef Card Serif Lettering */
         h1 { 
             font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
             font-size: 3rem; 
@@ -70,9 +69,31 @@
             color: #333333; 
             font-style: italic;
         }
-        .btn-group {
-            margin-top: 20px;
+        .badge-container { margin: 15px 0; }
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            margin: 2px;
         }
+        .kid-badge {
+            background-color: #ef6c00;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .btn-group { margin-top: 20px; }
         .btn { 
             display: inline-block; 
             background-color: var(--text-main); 
@@ -84,7 +105,6 @@
             letter-spacing: 1px;
             font-size: 0.95rem; 
             border: 1px solid var(--text-main);
-            transition: all 0.2s ease;
         }
         .btn-sec { 
             display: inline-block; 
@@ -111,14 +131,45 @@
         .card h3 { 
             font-family: "Times New Roman", Times, Georgia, serif;
             color: var(--text-main); 
-            margin-bottom: 10px; 
+            margin-bottom: 5px; 
             text-transform: uppercase;
             font-size: 1.15rem;
             letter-spacing: 0.5px;
         }
+        .crop-img-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: #eaeaea;
+            border: 1px dashed #999;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
         ul { list-style-type: none; }
         li { margin-bottom: 6px; padding-left: 15px; position: relative; font-size: 0.95rem; }
         li::before { content: "▪"; color: var(--primary); position: absolute; left: 0; font-size: 0.8rem; }
+        
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .price-table th, .price-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        .price-table th { background-color: #f4f4f4; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .price-tier { font-weight: bold; color: var(--dark); }
+        
+        .step-list { margin-top: 15px; }
+        .step-item { margin-bottom: 15px; }
+        .step-num { font-weight: bold; color: var(--primary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
+        
         .recipe-title { font-weight: 700; color: var(--text-main); margin-bottom: 4px; font-size: 1rem; }
         footer { 
             border-top: 1px solid var(--border-color);
@@ -144,62 +195,72 @@
             <h1>Legacy Farms</h1>
             <p class="hook">Hyper-local, organic microgreens harvested fresh and delivered to your doorstep. Up to 40x more nutrients than regular veggies!</p>
             
+            <div class="badge-container">
+                <span class="badge">🔄 Bi-Weekly Porch Drop</span>
+                <span class="badge">🛑 No Contracts / Cancel Anytime</span>
+            </div>
+
             <div class="btn-group">
-                <!-- PASTE YOUR ACTUAL GOOGLE FORM URLS INSIDE THE QUOTES BELOW -->
+                <!-- LOOK HERE: PASTE YOUR GOOGLE FORM LINKS INSIDE THESE QUOTES BELOW -->
                 <a href="PASTE_YOUR_SIGNUP_FORM_LINK_HERE" class="btn">Secure Your Porch Spot</a>
                 <br>
                 <a href="PASTE_YOUR_FEEDBACK_FORM_LINK_HERE" class="btn-sec">Leave Farm Feedback</a>
             </div>
         </header>
 
+        <h2>How Our Neighborhood System Works</h2>
+        <div class="step-list">
+            <div class="step-item">
+                <p class="step-num">Step 1: Secure Your Harvest Box</p>
+                <p style="font-size: 0.95rem;">Click the sign-up button above to claim your neighborhood slot. We grow exclusively to order each week to ensure zero food waste and perfect freshness.</p>
+            </div>
+            <div class="step-item">
+                <p class="step-num">Step 2: Bi-Weekly Porch Delivery</p>
+                <p style="font-size: 0.95rem;">Every other Friday morning, your fresh greens are harvested, packed, and dropped cleanly straight onto your Woodhaven porch.</p>
+            </div>
+            <div class="step-item">
+                <p class="step-num">Step 3: Simple Mobile Pay</p>
+                <p style="font-size: 0.95rem;">No complex recurring credit card sign-ups. You simply send your payment via Venmo or Cash App on delivery morning after your box arrives.</p>
+            </div>
+        </div>
+
+        <h2>Subscription Pricing Plans</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Harvest Plan Choice</th>
+                    <th>What You Receive</th>
+                    <th>Price Per Delivery</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="price-tier">🌻 The Sunflower Special</td>
+                    <td>Two 2oz Clamshells every other Friday</td>
+                    <td><strong>$12 / box</strong></td>
+                </tr>
+                <tr>
+                    <td class="price-tier">🌱 The Sweet Pea Rotation</td>
+                    <td>Two 2oz Clamshells every other Friday</td>
+                    <td><strong>$12 / box</strong></td>
+                </tr>
+                <tr>
+                    <td class="price-tier">🎉 The Mix & Match Box</td>
+                    <td>One Sunflower + One Pea Shoot every other Friday</td>
+                    <td><strong>$12 / box</strong></td>
+                </tr>
+                <tr>
+                    <td class="price-tier">🥦 The Superfood Blend</td>
+                    <td>One Broccoli + One Radish Clamshell every other Friday</td>
+                    <td><strong>$12 / box</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
         <h2>Our Superfood Varieties</h2>
         <div class="grid">
             <div class="card">
+                <div class="crop-img-placeholder">[ Photo Placeholder: Crunchy Sunflower ]</div>
                 <h3>🌻 Crunchy Sunflower Shoots</h3>
                 <ul>
                     <li><strong>Taste:</strong> Nutty, crisp, and robust</li>
-                    <li>20-25% Complete Plant Protein</li>
-                    <li>50% Daily Value of Vitamin E</li>
-                    <li>Rich in natural energy-giving iron</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>🌱 Sweet Pea Shoots</h3>
-                <ul>
-                    <li><strong>Taste:</strong> Sweet, just like crisp snap peas</li>
-                    <li>7x More Vitamin C than blueberries</li>
-                    <li>4x More Vitamin A than tomatoes</li>
-                    <li>High in bone-building Vitamin K</li>
-                </ul>
-            </div>
-        </div>
-
-        <h2>⚡ Quick Ways to Eat Your Greens</h2>
-        <div class="grid">
-            <div class="card">
-                <p class="recipe-title">🥤 The 5-Second Smoothie Boost</p>
-                <p style="font-size: 0.9rem; color: #444;">Toss a heavy handful of Sweet Pea shoots directly into your morning fruit blender. It adds a subtle sweet note and completely vanishes inside the blend while packing a massive antioxidant punch.</p>
-            </div>
-            <div class="card">
-                <p class="recipe-title">🥪 The Premium Sandwich Crunch</p>
-                <p style="font-size: 0.9rem; color: #444;">Ditch soggy iceberg lettuce. Layer a thick bedding of thick, nutty Sunflower shoots inside your wraps, burgers, or turkey sandwiches for an unbeatably fresh crisp that won't wilt.</p>
-            </div>
-            <div class="card">
-                <p class="recipe-title">🥗 The Ultimate 2-Minute Base Salad</p>
-                <p style="font-size: 0.9rem; color: #444;">Mix equal parts Sunflower and Pea shoots into a bowl, toss lightly with cherry tomatoes, a splash of olive oil, and simple balsamic dressing for a nutrient-dense gourmet side salad.</p>
-            </div>
-            <div class="card">
-                <p class="recipe-title">🍕 Dinner & Pizza Toppers</p>
-                <p style="font-size: 0.9rem; color: #444;">Right before serving hot dinners, throw a raw crop over steak, tacos, or hot take-out pizza. The ambient heat gently softens the stems without soaking away vital live enzymes.</p>
-            </div>
-        </div>
-
-        <footer>
-            <p class="footer-slogan">"We're not just growing greens, we're growing community."</p>
-            <p style="font-weight: 600;">© 2026 Legacy Farms - McCordsville, IN</p>
-            <p style="font-size: 0.8rem; color: #666666; margin-top: 5px;">Indiana Home-Based Vendor Compliant • Direct-To-Consumer Delivery Only</p>
-        </footer>
-    </div>
-
-</body>
-</html>
