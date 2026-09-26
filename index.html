@@ -35,28 +35,29 @@
             padding: 12px 10px;
         }
                 .navbar {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            background: #ffffff;
-            border-bottom: 2px solid var(--border-color);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between; /* Changes from space-around for cleaner layout */
-            align-items: center;
-            padding: 10px 15px;
-            overflow-x: auto; /* Allows smooth swipe scrolling if items overflow */
-            white-space: nowrap; /* Prevents text links from breaking into messy stacks */
-            gap: 15px; /* Keeps a perfect even cushion between your navigation items */
-        }
+                   position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background: #ffffff;
+        border-bottom: 2px solid var(--border-color);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 15px;
+    }
+    .navbar a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
-        .navbar a:hover { color: var(--primary); }
-        .navbar .nav-order-btn {
-            background-color: var(--primary);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 4px;
-        }
         .navbar .nav-order-btn:hover { background-color: var(--dark); color: white; }
         .outer-border {
             border: 2px solid var(--border-color);
