@@ -480,7 +480,7 @@
             </p>
         </footer>
     </div>
-        <!-- 🔄 Automated Sticky Bar Scroll Spy Script -->
+            <!-- 🔄 Automated Sticky Bar Scroll Spy Script with Horizontal Auto-Glide -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver(entries => {
@@ -490,6 +490,10 @@
                         document.querySelectorAll('.navbar a').forEach(navLink => {
                             if (navLink.getAttribute('href') === `#${id}`) {
                                 navLink.classList.add('active');
+                                
+                                /* 🎯 AUTOMATIC HORIZONTAL NAV SLIDE GLIDE */
+                                navLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                                
                             } else {
                                 navLink.classList.remove('active');
                             }
@@ -503,6 +507,7 @@
             });
         });
     </script>
+
 
 </body>
 </html>
