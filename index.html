@@ -10,7 +10,7 @@
             --dark: #1b5e20; 
             --border-color: #333333;
             --bg-light: #fcfdfa; 
-            --text-main: #2c3e50; 
+            --text-main: #232f3e; 
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -22,6 +22,8 @@
             padding: 0;
             margin: 0;
         }
+        
+        /* High-Performance Mobile Optimized Sticky Navbar */
         .navbar {
             position: -webkit-sticky;
             position: sticky;
@@ -30,44 +32,53 @@
             border-bottom: 2px solid var(--border-color);
             z-index: 1000;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            padding: 12px 10px;
+            padding: 14px 20px;
         }
-                .navbar {
-                   position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        background: #ffffff;
-        border-bottom: 2px solid var(--border-color);
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 15px;
-        overflow-x: auto;
-        white-space: nowrap;
-        gap: 15px;
-    }
-    .navbar a {
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    .navbar .nav-order-btn {
-        background-color: var(--primary);
-        color: white !important;
-        padding: 6px 14px;
-        border-radius: 4px;
-        margin-left: auto;
-    }
-    .navbar .nav-order-btn:hover { 
-        background-color: var(--dark); 
-        color: white !important; 
-    }
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .navbar a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .navbar .nav-order-btn {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            border: 1px solid var(--dark);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar .nav-order-btn:hover { 
+            background-color: var(--dark); 
+        }
+
+        /* Mobile Breakpoint Adjustment for Sticky Menu */
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+            .navbar-links {
+                gap: 12px;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 2px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .navbar-links::-webkit-scrollbar { display: none; }
+            .navbar a { font-size: 0.78rem; }
+            .navbar .nav-order-btn { padding: 6px 12px; font-size: 0.78rem; }
+        }
 
         .outer-border {
             border: 2px solid var(--border-color);
@@ -79,7 +90,6 @@
         header { 
             text-align: center; 
             padding-bottom: 30px; 
-           
             margin-bottom: 30px;
             padding-top: 10px;
         }
@@ -99,10 +109,14 @@
             color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color); /* Reinforced charcoal border */
             padding-bottom: 5px;
             margin-top: 50px;
             margin-bottom: 15px;
+        }
+        /* Green Balance Accent for Bottom Layout Sections */
+        .green-accent-h2 {
+            border-bottom: 2px solid var(--primary) !important;
         }
         .logo-sub { 
             font-size: 0.85rem; 
@@ -116,7 +130,7 @@
             font-weight: 500; 
             max-width: 650px; 
             margin: 20px auto 25px auto; 
-            color: #333333; 
+            color: #222222; 
             font-style: italic;
         }
         .badge-container { margin: 15px 0; }
@@ -156,17 +170,26 @@
             font-size: 0.95rem; 
             border: 1px solid var(--text-main);
         }
+        .btn:hover { background-color: var(--primary); border-color: var(--primary); }
         .btn-sec { 
             display: inline-block; 
             background-color: transparent; 
-            color: #555555; 
+            color: #222222; 
             text-decoration: none; 
             padding: 10px 20px; 
             font-weight: 600; 
-            border: 1px solid #cccccc; 
+            border: 1px solid #777777; 
             margin-top: 10px; 
             font-size: 0.85rem; 
         }
+        .btn-sec:hover { background-color: #f5f5f5; }
+        
+        /* Green Balance Accent Bordered Cards */
+        .green-border-card {
+            border: 1px solid var(--primary) !important;
+            border-top: 4px solid var(--primary) !important;
+        }
+        
         .grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -221,7 +244,8 @@
         .step-item { margin-bottom: 15px; }
         .step-num { font-weight: bold; color: var(--primary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
         
-        .recipe-title { font-weight: 700; color: var(--text-main); margin-bottom: 4px; font-size: 1rem; }
+        /* Recipe Green Highlights */
+        .recipe-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; font-size: 1rem; }
         footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); }
         .footer-slogan { font-style: italic; margin-bottom: 10px; color: var(--primary); font-weight: 600; }
     </style>
@@ -229,19 +253,20 @@
 <body>
 
     <nav class="navbar">
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing Plans</a>
-        <a href="#varieties">Our Greens</a>
-        <a href="#about-us">Our Story</a>
-        <a href="#waitlist">Waitlist</a>
+        <div class="navbar-links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#varieties">Our Greens</a>
+            <a href="#recipes">Recipes</a>
+            <a href="#about-us">Our Story</a>
+            <a href="#waitlist">Waitlist</a>
+        </div>
         <a href="PASTE_YOUR_SIGNUP_FORM_LINK_HERE" class="nav-order-btn">Order Now</a>
     </nav>
 
     <div class="outer-border">
         <header>
-            
             <img src="logo.png" alt="Legacy Farms Logo" style="max-width: 320px; width: 100%; height: auto; margin: 15px auto; display: block;">
-
             <p class="hook">Hyper-local, organic microgreens harvested fresh and delivered to your doorstep. Up to 40x more nutrients than regular veggies!</p>
             
             <div class="badge-container">
@@ -275,6 +300,7 @@
                 <p style="font-size: 0.95rem;">No complex recurring credit card sign-ups. You simply send your payment via Venmo or Cash App on Saturday morning after your box arrives.</p>
             </div>
         </div>
+
         <h2 id="pricing">Subscription Pricing Plans</h2>
         <table class="price-table">
             <thead>
@@ -351,6 +377,7 @@
                 </ul>
             </div>
         </div>
+
         <h2>Our Clean-Crop Standards</h2>
         <div class="step-list">
             <div class="step-item">
@@ -360,29 +387,28 @@
                 <p style="font-size: 0.95rem;"><strong>▪ The Porch Swap:</strong> Delivered in sanitized, temperature-shielded packing to protect quality from the Indiana weather.</p>
             </div>
         </div>
-
-        <h2 id="recipes">⚡ Quick Ways to Eat Your Greens</h2>
+        <h2 id="recipes" class="green-accent-h2">⚡ Quick Ways to Eat Your Greens</h2>
         <div class="grid">
-            <div class="card">
+            <div class="card green-border-card">
                 <p class="recipe-title">🥤 The 5-Second Smoothie Boost</p>
-                <p style="font-size: 0.9rem; color: #444;">Toss a heavy handful of Sweet Pea or Broccoli shoots directly into your morning fruit blender. They vanish completely into the fruit flavor while packing a massive nutrient punch.</p>
+                <p style="font-size: 0.9rem; color: #333;">Toss a heavy handful of Sweet Pea or Broccoli shoots directly into your morning fruit blender. They vanish completely into the fruit flavor while packing a massive nutrient punch.</p>
             </div>
-            <div class="card">
+            <div class="card green-border-card">
                 <p class="recipe-title">🥪 The Premium Sandwich Crunch</p>
-                <p style="font-size: 0.9rem; color: #444;">Ditch soggy shredded lettuce. Layer a thick bedding of crunchy Sunflower shoots inside your wraps, burgers, or sandwiches for an unbeatably fresh crisp.</p>
+                <p style="font-size: 0.9rem; color: #333;">Ditch soggy shredded lettuce. Layer a thick bedding of crunchy Sunflower shoots inside your wraps, burgers, or sandwiches for an unbeatably fresh crisp.</p>
             </div>
-            <div class="card">
+            <div class="card green-border-card">
                 <p class="recipe-title">🥗 The Ultimate 2-Minute Salad Base</p>
-                <p style="font-size: 0.9rem; color: #444;">Mix equal parts Sunflower and Pea shoots, toss lightly with cherry tomatoes, olive oil, and a splash of balsamic dressing for a gourmet side salad.</p>
+                <p style="font-size: 0.9rem; color: #333;">Mix equal parts Sunflower and Pea shoots, toss lightly with cherry tomatoes, olive oil, and a splash of balsamic dressing for a gourmet side salad.</p>
             </div>
-            <div class="card">
+            <div class="card green-border-card">
                 <p class="recipe-title">🌮 Taco, Burger & Dinner Toppers</p>
-                <p style="font-size: 0.9rem; color: #444;">Throw a raw crop of peppery Daikon Radish microgreens right over steaks, tacos, or hot take-out pizza. The ambient heat softens the stems perfectly without destroying vital enzymes.</p>
+                <p style="font-size: 0.9rem; color: #333;">Throw a raw crop of peppery Daikon Radish microgreens right over steaks, tacos, or hot take-out pizza. The ambient heat softens the stems perfectly without destroying vital enzymes.</p>
             </div>
         </div>
 
-        <h2 id="about-us">Our Story</h2>
-                <p style="font-style: italic; color: var(--primary); font-weight: 700; margin-bottom: 20px; font-size: 1.1rem;">
+        <h2 id="about-us" class="green-accent-h2">Our Story</h2>
+        <p style="font-style: italic; color: var(--primary); font-weight: 700; margin-bottom: 20px; font-size: 1.1rem;">
             "Tomorrow's Harvest, Grown Locally Today"
         </p>
 
@@ -397,20 +423,20 @@
             </div>
         </div>
 
-        <h2 id="waitlist">Outside Our Delivery Zone?</h2>
+        <h2 id="waitlist" class="green-accent-h2">Outside Our Delivery Zone?</h2>
         <div class="step-list">
             <div class="step-item">
                 <p style="font-size: 0.95rem; margin-bottom: 15px;">We currently deliver exclusively to the Woodhaven neighborhood to keep our routes tight and our greens perfectly fresh. However, we love feeding new communities!</p>
                 <p style="font-size: 0.95rem; margin-bottom: 20px;">If you live in a surrounding McCordsville neighborhood, join our expansion waitlist below. <strong>Once 10 households in your immediate neighborhood sign up, we will officially open a brand-new Saturday delivery route to your community!</strong></p>
-                <a href="PASTE_YOUR_WAITLIST_FORM_LINK_HERE" class="btn-sec" style="display: inline-block; margin-top: 0;">Join the Neighborhood Waitlist</a>
+                <a href="PASTE_YOUR_WAITLIST_FORM_LINK_HERE" class="btn-sec" style="display: inline-block; margin-top: 0; border: 2px solid var(--primary); color: var(--dark);">Join the Neighborhood Waitlist</a>
             </div>
         </div>
 
         <footer>
             <p class="footer-slogan">"We're not just growing greens, we're growing community."</p>
             <p style="font-weight: 600;">© 2026 Legacy Farms - McCordsville, IN</p>
-            <p style="font-size: 0.8rem; color: #666666; margin-top: 5px;">Indiana Home-Based Vendor Compliant • Direct-To-Consumer Delivery Only</p>
-            <p style="font-size: 0.75rem; color: #777777; margin-top: 10px; line-height: 1.3;">
+            <p style="font-size: 0.8rem; color: #444444; margin-top: 5px;">Indiana Home-Based Vendor Compliant • Direct-To-Consumer Delivery Only</p>
+            <p style="font-size: 0.75rem; color: #555555; margin-top: 10px; line-height: 1.3;">
                 *Nutritional metrics are conservative values verified by the <a href="https://usda.gov" style="color: #2e7d32; text-decoration: none; font-weight: 600;">USDA FoodData Central Database</a> and landmark nutritional profiling studies from the University of Maryland.
             </p>
         </footer>
