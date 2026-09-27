@@ -62,23 +62,29 @@
             background-color: var(--dark); 
         }
 
-        /* Mobile Breakpoint Adjustment for Sticky Menu */
-        @media (max-width: 650px) {
-            .navbar {
-                padding: 10px 15px;
-                gap: 10px;
-            }
-            .navbar-links {
-                gap: 12px;
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 2px;
-                -webkit-overflow-scrolling: touch;
-            }
-            .navbar-links::-webkit-scrollbar { display: none; }
-            .navbar a { font-size: 0.78rem; }
-            .navbar .nav-order-btn { padding: 6px 12px; font-size: 0.78rem; }
-        }
+       /* Mobile Breakpoint Adjustment for Sticky Menu (Phones) */
+@media (max-width: 650px) {
+    .navbar {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    
+    /* 🎯 THE VISUAL PEEK: Gap width adjusted to slice the menu links perfectly on mobile phone edges */
+    .navbar-links {
+        gap: 22px; 
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .navbar-links::-webkit-scrollbar { 
+        display: none !important; /* Keeps a clean, high-end app aesthetic */
+    }
+
+    .navbar a { font-size: 0.78rem; }
+    .navbar .nav-order-btn { padding: 6px 12px; font-size: 0.78rem; }
+}
+
 
         .outer-border {
             border: 2px solid var(--border-color);
@@ -252,7 +258,13 @@
 </head>
 <body>
 
-    <nav class="navbar">
+        <nav class="navbar">
+        <!-- 1. Your Brand New Horizontal Logo -->
+        <a href="#" class="nav-brand-logo">
+            <img src="logo-horizontal.png" alt="Legacy Farms Home" style="height: 28px; width: auto; display: block; vertical-align: middle;">
+        </a>
+
+        <!-- 2. Clean Horizontal Link Loop -->
         <div class="navbar-links">
             <a href="#how-it-works">How It Works</a>
             <a href="#pricing">Pricing</a>
@@ -261,8 +273,11 @@
             <a href="#about-us">Our Story</a>
             <a href="#waitlist">Waitlist</a>
         </div>
+
+        <!-- 3. Green High-Pop Mobile Action Button -->
         <a href="PASTE_YOUR_SIGNUP_FORM_LINK_HERE" class="nav-order-btn">Order Now</a>
     </nav>
+
 
     <div class="outer-border">
         <header>
