@@ -163,7 +163,11 @@
             display: inline-block;
             margin-bottom: 5px;
         }
+        /* --- MODERNIZED INTERACTIVE UTILITIES --- */
+
         .btn-group { margin-top: 20px; }
+        
+        /* Smooth Global Button Physics */
         .btn { 
             display: inline-block; 
             background-color: var(--text-main); 
@@ -175,60 +179,76 @@
             letter-spacing: 1px;
             font-size: 0.95rem; 
             border: 1px solid var(--text-main);
+            border-radius: 6px; /* Softened crisp corner angles */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            
+            /* ⚡ Smooth Color Transition */
+            transition: all 0.3s ease; 
         }
-        .btn:hover { background-color: var(--primary); border-color: var(--primary); }
+        .btn:hover { 
+            background-color: var(--primary); 
+            border-color: var(--primary);
+            transform: translateY(-2px); /* Gentle hover float */
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+        }
+
+        /* Secondary Button Fluidity */
         .btn-sec { 
             display: inline-block; 
             background-color: transparent; 
-            color: #222222; 
+            color: var(--text-main); 
             text-decoration: none; 
             padding: 10px 20px; 
             font-weight: 600; 
-            border: 1px solid #777777; 
+            border: 2px solid var(--primary); 
+            border-radius: 6px;
             margin-top: 10px; 
-            font-size: 0.85rem; 
+            font-size: 0.85rem;
+            transition: all 0.25s ease;
         }
-        .btn-sec:hover { background-color: #f5f5f5; }
-        
-        /* Green Balance Accent Bordered Cards */
+        .btn-sec:hover { 
+            background-color: var(--primary); 
+            color: white; 
+        }
+
+        /* Premium Floating Cards (Replaces Hard Blueprint Borders) */
+        .card { 
+            border: 1px solid #f0f2ed; /* Replaced thick charcoal with a faint, clean anchor border */
+            border-radius: 12px; /* Smooth card rounding */
+            padding: 24px; 
+            background: #ffffff; 
+            box-shadow: 0 4px 15px rgba(35, 47, 62, 0.04); /* Soft cloud-like shadow */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Advanced smooth bounce transition */
+        }
+        .card:hover {
+            transform: translateY(-4px); /* Card physically lifts up slightly when interacted with */
+            box-shadow: 0 10px 25px rgba(35, 47, 62, 0.08); /* Shadow deepens to look closer to the eye */
+            border-color: var(--primary);
+        }
+
+        /* Soft Green Card Accent Variant */
         .green-border-card {
-            border: 1px solid var(--primary) !important;
+            border: 1px solid #e1ebe2 !important;
             border-top: 4px solid var(--primary) !important;
         }
-        
-        .grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
-        }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-        .card { 
-            border: 1px solid var(--border-color); 
-            padding: 20px; 
-            background: #ffffff; 
-        }
-        .card h3 { 
-            font-family: "Times New Roman", Times, Georgia, serif;
-            color: var(--text-main); 
-            margin-bottom: 5px; 
-            text-transform: uppercase;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
-        }
+
+        /* Crop Image Container Softening */
         .crop-img-placeholder {
             width: 100%;
             height: 150px;
-            background-color: #f1f8e9; 
-            border: 1px solid var(--border-color);
-            margin-bottom: 12px;
+            background-color: #f4f9f1; 
+            border: 1px solid #e2ebd9;
+            border-radius: 8px;
+            margin-bottom: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-family: "Times New Roman", Times, serif;
             font-size: 2.5rem; 
-            font-weight: normal;
+            transition: background-color 0.2s ease;
         }
+
         ul { list-style-type: none; }
         li { margin-bottom: 6px; padding-left: 15px; position: relative; font-size: 0.95rem; }
         li::before { content: "▪"; color: var(--primary); position: absolute; left: 0; font-size: 0.8rem; }
