@@ -12,6 +12,35 @@
             --bg-light: #fcfdfa; 
             --text-main: #232f3e; 
         }
+                /* Live Urgency Ticker Styling */
+        .harvest-ticker {
+            background-color: #ef6c00; /* High-pop harvest orange */
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .ticker-divider {
+            opacity: 0.5;
+        }
+        @media (max-width: 650px) {
+            .harvest-ticker {
+                font-size: 0.72rem;
+                padding: 6px 10px;
+                gap: 5px;
+            }
+            .ticker-divider { display: none; } /* Stacks cleanly on tiny screens */
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { 
@@ -282,9 +311,65 @@
         .recipe-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; font-size: 1rem; }
         footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); }
         .footer-slogan { font-style: italic; margin-bottom: 10px; color: var(--primary); font-weight: 600; }
+                /* Multi-Route Scannable Tracking Elements */
+        .progress-container {
+            background: #f4f9f1;
+            border: 1px solid #e2ebd9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            margin-top: 15px;
+        }
+        .progress-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .route-row {
+            margin-bottom: 12px;
+        }
+        .route-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+        .progress-bar-bg {
+            background: #e0e0e0;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 16px;
+        }
+        .progress-bar-fill {
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 16px;
+        }
+        .progress-caption {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #555555;
+            line-height: 1.4;
+        }
+
     </style>
 </head>
 <body>
+        <!-- 🚨 HIGH-POP LIVE HARVEST TICKER -->
+    <div class="harvest-ticker">
+        <span>🚨 NEXT SEEDING CYCLE CLOSING IN: Tuesday at 9:00 PM</span>
+        <span class="ticker-divider">|</span>
+        <span>📦 Woodhaven Saturday Route Capacity: 14/20 Households Filled</span>
+    </div>
+
 
         <nav class="navbar">
         <!-- 1. Your Brand New Horizontal Logo -->
@@ -462,11 +547,37 @@
             </div>
         </div>
 
-        <h2 id="waitlist" class="green-accent-h2">Outside Our Delivery Zone?</h2>
+                <h2 id="waitlist" class="green-accent-h2">Outside Our Delivery Zone?</h2>
         <div class="step-list">
             <div class="step-item">
-                <p style="font-size: 0.95rem; margin-bottom: 15px;">We currently deliver exclusively to the Woodhaven neighborhood to keep our routes tight and our greens perfectly fresh. However, we love feeding new communities!</p>
-                <p style="font-size: 0.95rem; margin-bottom: 20px;">If you live in a surrounding McCordsville neighborhood, join our expansion waitlist below. <strong>Once 10 households in your immediate neighborhood sign up, we will officially open a brand-new Saturday delivery route to your community!</strong></p>
+                <p style="font-size: 0.95rem; margin-bottom: 15px;">We currently deliver exclusively to the <strong>Woodhaven</strong> neighborhood to keep our routes tight and our crops perfectly fresh. However, we love feeding new communities!</p>
+                
+                <!-- 🔥 SCANNABLE GEIST & MCCORDSVILLE ROUTE EXPANSION TRACKER -->
+                <div class="progress-container">
+                    <p class="progress-title">🚚 Neighborhood Expansion Leaderboard:</p>
+                    
+                    <!-- Neighborhood 1 -->
+                    <div class="route-row">
+                        <div class="route-info"><span>📍 Austin Lakes / Geist Shores</span> <strong>8/10 Houses</strong></div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;">Almost Unlocked!</div></div>
+                    </div>
+
+                    <!-- Neighborhood 2 -->
+                    <div class="route-row">
+                        <div class="route-info"><span>📍 Emerald Springs</span> <strong>5/10 Houses</strong></div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%; background: #66bb6a;">Halfway There</div></div>
+                    </div>
+
+                    <!-- Neighborhood 3 -->
+                    <div class="route-row">
+                        <div class="route-info"><span>📍 Windward Pass / Geist Overlook</span> <strong>3/10 Houses</strong></div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 30%; background: #9ccc65;">Gathering Steam</div></div>
+                    </div>
+
+                    <p class="progress-caption" style="margin-top: 15px;">🎯 Don't see your neighborhood? Join the waitlist below. Once 10 households in your immediate community sign up, we officially open your Saturday delivery route!</p>
+                </div>
+
+                <p style="font-size: 0.95rem; margin-bottom: 20px;">If you live in a surrounding McCordsville or Geist area, join our expansion waitlist below.</p>
                 <a href="PASTE_YOUR_WAITLIST_FORM_LINK_HERE" class="btn-sec" style="display: inline-block; margin-top: 0; border: 2px solid var(--primary); color: var(--dark);">Join the Neighborhood Waitlist</a>
             </div>
         </div>
