@@ -286,16 +286,7 @@
             transition: background-color 0.2s ease;
         }
 
-        ul { 
-    list-style-type: none; 
-}
-li { 
-    margin-bottom: 12px; 
-    padding-left: 32px; 
-    position: relative; 
-    font-size: 0.95rem; 
-}
-li::before { 
+    li::before { 
     content: ""; 
     position: absolute; 
     left: 0; 
@@ -305,9 +296,10 @@ li::before {
     background-image: url("logo-square.png"); 
     background-size: contain; 
     background-repeat: no-repeat;
-    background-color: #ffffff; 
     border-radius: 4px; 
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08); 
+    
+    /* ⚡ THE QUICK FIX: Inverts the image colors so black becomes white! */
+    filter: invert(1) hue-rotate(140deg) brightness(0.95);
 }
  
         .price-table {
