@@ -285,20 +285,19 @@
             font-size: 2.5rem; 
             transition: background-color 0.2s ease;
        }
+ul { 
+    list-style: none !important; /* Forces the browser to completely hide default dots */
+    padding: 0;
+    margin: 0;
+}
 li { 
     margin-bottom: 12px; 
     padding-left: 20px; 
     position: relative; 
     font-size: 0.95rem; 
+    list-style-type: none !important; /* Safety backup to kill standard dots */
 }
-li::before { 
-    content: "•"; /* Clean, classic bullet point */
-    color: var(--primary); /* Matches your beautiful farm green */
-    position: absolute; 
-    left: 0; 
-    font-size: 1.1rem;
-    top: -1px;
-}
+
 .price-table {
     width: 100%;
     border-collapse: collapse;
