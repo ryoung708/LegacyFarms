@@ -286,22 +286,20 @@
             transition: background-color 0.2s ease;
         }
 
-    li::before { 
+   li::before { 
     content: ""; 
     position: absolute; 
     left: 0; 
-    top: 4px; 
-    width: 18px; 
-    height: 18px; 
+    top: 3px; 
+    width: 20px; 
+    height: 20px; 
+    background-image: url("logo-square.png"); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    border-radius: 4px; 
     
-    /* ⚡ THE CUTOUT MASK: Ignores image colors and uses it as a clean stencil! */
-    background-color: var(--primary); 
-    -webkit-mask-image: url("logo-square.png");
-    mask-image: url("logo-square.png");
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
+    /* ⚡ THE QUICK FIX: Inverts the image colors so black becomes white! */
+    filter: invert(1) hue-rotate(140deg) brightness(0.95);
 }
  
         .price-table {
