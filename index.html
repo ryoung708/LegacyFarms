@@ -286,29 +286,42 @@
             transition: background-color 0.2s ease;
        }
 ul { 
-    padding-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 li { 
-    margin-bottom: 8px; 
+    margin-bottom: 6px; 
+    padding-left: 15px; 
+    position: relative; 
     font-size: 0.95rem; 
 }
-.crop-standards {
-    list-style-type: none !important;
-    padding-left: 0 !important;
-}
-.crop-standards li {
-    position: relative;
-    padding-left: 28px;
-    margin-bottom: 12px;
-}
-.crop-standards li::before { 
-    content: "🌱"; 
+li::before { 
+    content: "▪"; 
+    color: var(--primary); 
     position: absolute; 
     left: 0; 
-    top: 0px; 
-    font-size: 1.1rem;
+    font-size: 0.8rem; 
+}
+
+/* 🎯 PREMIUM UPGRADE: Uses your square logo asset ONLY for Clean-Crop Standards */
+.crop-standards li {
+    padding-left: 32px; /* Extra spacing so the text clears your logo */
+    margin-bottom: 14px;
+}
+.crop-standards li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background-image: url("logo-square.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #ffffff; /* Forces a crisp white mask background under the sprout logo */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); /* Adds a faint modern shadow depth */
 }
 
 .price-table {
@@ -541,10 +554,10 @@ li {
 <div class="step-list">
     <div class="step-item">
         <ul class="crop-standards">
-            <li><strong>Controlled Indoor Growing:</strong> Cultivated entirely indoors...</li>
-            <li><strong>Soil-Free Harvesting:</strong> All crops are cleanly clipped...</li>
-            <li><strong>Pure Water Only:</strong> Grown utilizing filtered drinking water...</li>
-            <li><strong>The Porch Swap:</strong> Delivered in sanitized...</li>
+            <li><strong>Controlled Indoor Growing:</strong> Cultivated entirely indoors inside a hyper-clean, climate-controlled environment. Free from bugs, outdoor pollution, and unpredictable weather.</li>
+            <li><strong>Soil-Free Harvesting:</strong> All crops are cleanly clipped well above the soil line. Zero dirt or growing media ever enters your kitchen container.</li>
+            <li><strong>Pure Water Only:</strong> Grown utilizing filtered drinking water with absolutely zero chemical pesticides, sprays, or fertilizers.</li>
+            <li><strong>The Porch Swap:</strong> Delivered in sanitized, temperature-shielded packing to protect quality from the Indiana weather.</li>
         </ul>
     </div>
 </div>
