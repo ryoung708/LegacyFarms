@@ -309,6 +309,30 @@ li::before {
     padding-left: 32px; /* Extra spacing so the text clears your logo */
     margin-bottom: 14px;
 }
+ul { 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+li { 
+    margin-bottom: 6px; 
+    padding-left: 15px; 
+    position: relative; 
+    font-size: 0.95rem; 
+}
+li::before { 
+    content: "▪"; 
+    color: var(--primary); 
+    position: absolute; 
+    left: 0; 
+    font-size: 0.8rem; 
+}
+
+/* 🎯 PREMIUM UPGRADE: Uses your square logo asset ONLY for Clean-Crop Standards */
+.crop-standards li {
+    padding-left: 32px; /* Extra spacing so the text clears your logo */
+    margin-bottom: 14px;
+}
 .crop-standards li::before {
     content: "";
     position: absolute;
@@ -322,6 +346,7 @@ li::before {
     background-color: #ffffff; /* Forces a crisp white mask background under the sprout logo */
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06); /* Adds a faint modern shadow depth */
+        filter: invert(1) hue-rotate(140deg) brightness(0.95);
 }
 
 .price-table {
