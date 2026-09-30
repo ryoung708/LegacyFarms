@@ -359,8 +359,21 @@
             color: #555555;
             line-height: 1.4;
         }
+        .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+@media (max-width: 650px) {
+    .grid {
+        grid-template-columns: 1fr; /* Stacks vertically on standard phones */
+        gap: 15px;
+    }
+}
 
-    </style>
+ </style>
 </head>
 <body>
             <!-- 🚨 HIGH-POP LIVE HARVEST TICKER -->
