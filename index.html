@@ -298,6 +298,15 @@ li {
     font-size: 0.95rem; 
     list-style-type: none !important;
 }
+li::before { 
+    content: "•"; 
+    color: var(--primary); 
+    position: absolute; 
+    left: 0; 
+    font-size: 1.1rem;
+    top: -1px;
+}
+
 .price-table {
     width: 100%;
     border-collapse: collapse;
