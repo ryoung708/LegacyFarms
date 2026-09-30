@@ -286,21 +286,27 @@
             transition: background-color 0.2s ease;
         }
 
-  li::before { 
-    content: ""; 
+  /* Standard bullet reset */
+ul { 
+    list-style-type: none; 
+}
+
+/* Custom isolated list rules for product cards */
+.farm-list li { 
+    margin-bottom: 12px; 
+    padding-left: 28px; 
+    position: relative; 
+    font-size: 0.95rem; 
+}
+
+.farm-list li::before { 
+    content: "🌱"; /* Fallback high-contrast emoji */
     position: absolute; 
     left: 0; 
-    top: 3px; 
-    width: 20px; 
-    height: 20px; 
-    background-image: url("logo-square.png"); 
-    background-size: contain; 
-    background-repeat: no-repeat;
-    border-radius: 4px; 
-    
-    /* ⚡ THE QUICK FIX: Inverts the image colors so black becomes white! */
-    filter: invert(1) hue-rotate(140deg) brightness(0.95);
+    top: 1px; 
+    font-size: 1.1rem; 
 }
+
 
  
         .price-table {
