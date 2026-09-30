@@ -284,41 +284,32 @@
             font-family: "Times New Roman", Times, serif;
             font-size: 2.5rem; 
             transition: background-color 0.2s ease;
-        }
-
-  /* Standard bullet reset */
-ul { 
-    list-style-type: none; 
-}
-
-/* Custom isolated list rules for product cards */
-.farm-list li { 
+       }
+li { 
     margin-bottom: 12px; 
-    padding-left: 28px; 
+    padding-left: 20px; 
     position: relative; 
     font-size: 0.95rem; 
 }
-
-.farm-list li::before { 
-    content: "🌱"; /* Fallback high-contrast emoji */
+li::before { 
+    content: "•"; /* Clean, classic bullet point */
+    color: var(--primary); /* Matches your beautiful farm green */
     position: absolute; 
     left: 0; 
-    top: 1px; 
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
+    top: -1px;
+}
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.price-table th, .price-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
 }
 
-
- 
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        .price-table th, .price-table td {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
-        }
         .price-table th { background-color: #f4f4f4; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
         .price-tier { font-weight: bold; color: var(--dark); }
         
