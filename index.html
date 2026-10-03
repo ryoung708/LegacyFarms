@@ -502,34 +502,59 @@ li::before {
             </div>
         </div>
 
-                        <h2 id="pricing">Subscription Pricing Plans</h2>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th>Harvest Subscription Box</th>
-                    <th>What You Receive</th>
-                    <th>Price Per Saturday Delivery</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="price-tier">🟢 The Single Box Choice</td>
-                    <td><strong>Two 2oz Clamshells</strong> of your chosen variety loop</td>
-                    <td><strong>$12 / box</strong></td>
-                </tr>
-                <tr>
-                    <td class="price-tier">🔥 The Double Box Deal</td>
-                    <td><strong>Four 2oz Clamshells</strong> dropped to your porch</td>
-                    <td><strong>$20 total</strong> <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">(SAVE $4)</span></td>
-                </tr>
-                <tr>
-                    <td class="price-tier">👑 The Triple Box Family Plan</td>
-                    <td><strong>Six 2oz Clamshells</strong> dropped to your porch</td>
-                    <td><strong>$28 total</strong> <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold;">(SAVE $8)</span></td>
-                </tr>
-            </tbody>
-        </table>
+                      <h2 id="pricing">Subscription Pricing Plans</h2>
 
+<div class="grid" style="margin-top: 25px;">
+    
+    <!-- Tier 1 -->
+    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
+        <div>
+            <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Individual</span>
+            <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🟢 The Single Box Choice</h3>
+            <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Two 2oz Clamshells of your chosen variety loop delivered right to your porch.</p>
+        </div>
+        <div style="margin-top: 20px; display: flex; align-items: baseline; gap: 4px;">
+            <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$12</span>
+            <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+        </div>
+    </div>
+
+    <!-- Tier 2 (Anchored Featured Tier) -->
+    <div class="card green-border-card" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; position: relative;">
+        <!-- Popularity Ribbon -->
+        <span style="position: absolute; top: -12px; right: 15px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Most Popular</span>
+        
+        <div>
+            <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--primary);">Best Value</span>
+            <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🔥 The Double Box Deal</h3>
+            <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Four 2oz Clamshells dropped to your porch. Perfect for couples and daily morning smoothie boosts.</p>
+        </div>
+        <div style="margin-top: 20px;">
+            <div style="display: flex; align-items: baseline; gap: 4px;">
+                <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$20</span>
+                <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+            </div>
+            <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $4 Every Week</span>
+        </div>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
+        <div>
+            <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Family Size</span>
+            <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">👑 The Triple Box Plan</h3>
+            <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Six 2oz Clamshells dropped to your porch. Best choice for large households, daily juicers, and heavy salad eaters.</p>
+        </div>
+        <div style="margin-top: 20px;">
+            <div style="display: flex; align-items: baseline; gap: 4px;">
+                <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$28</span>
+                <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+            </div>
+            <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $8 Every Week</span>
+        </div>
+    </div>
+
+</div>
 
         <h2 id="varieties">Our Superfood Varieties</h2>
         <div class="grid">
