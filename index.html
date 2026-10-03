@@ -265,7 +265,23 @@
     box-shadow: 0 12px 30px rgba(35, 47, 62, 0.07); /* Deepens the shadow naturally */
     border-color: var(--primary);
 }
-
+/* 🟢 Live Dashboard Status Pulse Animation */
+@keyframes status-pulse {
+    0% { opacity: 0.4; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.4; transform: scale(0.95); }
+}
+.live-pulse-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: #2e7d32; /* Matches your beautiful farm green */
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: status-pulse 2s infinite ease-in-out;
+    box-shadow: 0 0 8px rgba(46, 125, 50, 0.6);
+}
         /* Soft Green Card Accent Variant */
         .green-border-card {
             border: 1px solid #e1ebe2 !important;
@@ -700,24 +716,38 @@ li::before {
                 <div class="progress-container">
                     <p class="progress-title">🚚 Neighborhood Expansion Leaderboard:</p>
                     
-                    <!-- Neighborhood 1 -->
-                    <div class="route-row">
-                        <div class="route-info"><span>📍 Austin Lakes / Geist Shores</span> <strong>3/10 Houses Joined</strong></div>
-                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 30%;">Gathering Steam</div></div>
-                    </div>
+                   <!-- Neighborhood 1 -->
+<div class="route-row">
+    <div class="route-info">
+        <span><span class="live-pulse-dot"></span>📍 Austin Lakes / Geist Shores</span>
+        <strong>3/10 Houses Joined</strong>
+    </div>
+    <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 30%;">Gathering Steam</div>
+    </div>
+</div>
 
-                    <!-- Neighborhood 2 -->
-                    <div class="route-row">
-                        <div class="route-info"><span>📍 Emerald Springs</span> <strong>2/10 Houses Joined</strong></div>
-                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20%; background: #66bb6a;">Early Interest</div></div>
-                    </div>
+<!-- Neighborhood 2 -->
+<div class="route-row">
+    <div class="route-info">
+        <span><span class="live-pulse-dot" style="background-color: #ef6c00; box-shadow: 0 0 8px rgba(239, 108, 0, 0.6);"></span>📍 Emerald Springs</span>
+        <strong>2/10 Houses Joined</strong>
+    </div>
+    <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 20%; background: #66bb6a;">Early Interest</div>
+    </div>
+</div>
 
-                    <!-- Neighborhood 3 -->
-                    <div class="route-row">
-                        <div class="route-info"><span>📍 Windward Pass / Geist Overlook</span> <strong>1/10 Houses Joined</strong></div>
-                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 10%; background: #9ccc65;">Route Pending</div></div>
-                    </div>
-
+<!-- Neighborhood 3 -->
+<div class="route-row">
+    <div class="route-info">
+        <span><span class="live-pulse-dot" style="background-color: #78909c; box-shadow: 0 0 8px rgba(120, 144, 156, 0.4);"></span>📍 Windward Pass / Geist Overlook</span>
+        <strong>1/10 Houses Joined</strong>
+    </div>
+    <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 10%; background: #9ccc65;">Route Pending</div>
+    </div>
+</div>
                     <p class="progress-caption" style="margin-top: 15px;">🎯 Don't see your neighborhood? Join the waitlist below. Once 10 households from your immediate community sign up, we officially build and unlock your Saturday delivery route!</p>
                 </div>
 
