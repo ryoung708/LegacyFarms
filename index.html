@@ -12,34 +12,45 @@
             --bg-light: #fcfdfa; 
             --text-main: #232f3e; 
         }
-                /* Live Urgency Ticker Styling */
-        .harvest-ticker {
-            background-color: #ef6c00; /* High-pop harvest orange */
-            color: #ffffff;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 8px 15px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            border-bottom: 2px solid var(--border-color);
-        }
-        .ticker-divider {
-            opacity: 0.5;
-        }
-        @media (max-width: 650px) {
-            .harvest-ticker {
-                font-size: 0.72rem;
-                padding: 6px 10px;
-                gap: 5px;
-            }
-            .ticker-divider { display: none; } /* Stacks cleanly on tiny screens */
-        }
+               /* 🚨 INFINITE SMOOTH SCROLLING TICKER ENGINE */
+.harvest-ticker {
+    background-color: #ef6c00; /* High-pop harvest orange */
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 0; /* Clear vertical padding only */
+    border-bottom: 2px solid var(--border-color);
+    overflow: hidden; /* Mask out text outside the screen width */
+    position: relative;
+    width: 100%;
+    white-space: nowrap; /* FORCES text onto a single continuous line */
+}
+
+/* The structural scrolling track container */
+.ticker-wrap {
+    display: inline-block;
+    padding-left: 100%; /* Delays the start so it glides in smoothly */
+    animation: infinite-crawl 25s linear infinite; /* Ultra-smooth, looping pace */
+}
+
+.ticker-item {
+    display: inline-block;
+    padding-right: 40px; /* Generous spacing between message loops */
+}
+
+@keyframes infinite-crawl {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+@media (max-width: 650px) {
+    .harvest-ticker {
+        font-size: 0.72rem;
+        padding: 6px 0;
+    }
+}
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -488,13 +499,16 @@ li::before {
  </style>
 </head>
 <body>
-            <!-- 🚨 HIGH-POP LIVE HARVEST TICKER -->
-    <div class="harvest-ticker">
-        <span>🚨 NEXT SEEDING CYCLE CLOSING IN: Tuesday at 9:00 PM</span>
-        <span class="ticker-divider">|</span>
-        <span>📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
+           <!-- 🚨 HIGH-POP LIVE CONTINUOUS SCROLLING TICKER -->
+<div class="harvest-ticker">
+    <div class="ticker-wrap">
+        <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING IN: Tuesday at 9:00 PM</span>
+        <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
+        <!-- Duplicate message loop to ensure a continuous, gap-free flow -->
+        <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING IN: Tuesday at 9:00 PM</span>
+        <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
     </div>
-
+</div>
 
         <nav class="navbar">
         <!-- 1. Your Brand New Horizontal Logo -->
