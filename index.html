@@ -64,14 +64,14 @@
             margin: 0;
         }
         
-        /* High-Performance Mobile Optimized Sticky Navbar */
+                /* High-Performance Mobile Optimized Sticky Navbar */
         .navbar {
             position: -webkit-sticky;
             position: sticky;
             top: 0;
             background: #ffffff;
             border-bottom: 2px solid var(--border-color);
-            z-index: 1000;
+            z-index: 9999 !important; /* Forces layout supremacy above scrolling ticker items */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -89,6 +89,8 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 10005; /* Ensures links sit safely on top of structural containers */
         }
         .navbar .nav-order-btn {
             background-color: var(--primary);
@@ -99,6 +101,7 @@
             border: 1px solid var(--dark);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             cursor: pointer;
+            z-index: 10005;
         }
         .navbar .nav-order-btn:hover { 
             background-color: var(--dark); 
@@ -117,21 +120,25 @@
             .navbar {
                 padding: 10px 12px;
                 gap: 10px;
+                display: flex !important;
             }
             
             /* 🎯 THE VISUAL PEEK: Gap width adjusted to slice the menu links perfectly on mobile phone edges */
             .navbar-links {
+                display: flex !important;
                 gap: 22px; 
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 2px;
-                -webkit-overflow-scrolling: touch;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                padding-bottom: 6px;
+                margin-bottom: -4px;
+                -webkit-overflow-scrolling: touch !important;
+                pointer-events: auto !important; /* Restores touch capability explicitly on mobile viewports */
             }
             .navbar-links::-webkit-scrollbar { 
                 display: none !important; /* Keeps a clean, high-end app aesthetic */
             }
 
-            .navbar a { font-size: 0.78rem; }
+            .navbar a { font-size: 0.78rem; display: inline-block !important; }
             .navbar .nav-order-btn { padding: 6px 12px; font-size: 0.78rem; }
         }
         .outer-border {
@@ -716,6 +723,14 @@
                 <p class="recipe-title">🥗 The Living Base Salad Accent</p>
                 <p style="font-size: 0.9rem; color: #555555;">Fold your favorite microgreens completely into your dinner salad base right before serving. Enhances nutritional content by up to 40x per bite.</p>
             </div>
+        </div>
+                <h2>Our Clean-Crop Standards</h2>
+        <div class="card green-border-card" style="margin-top: 15px;">
+            <ul class="crop-standards">
+                <li><strong>100% Organically Grown:</strong> We cultivate exclusively inside custom food-safe environments using premium non-GMO seeds, zero synthetic pesticides, and pure untainted water supplies.</li>
+                <li><strong>Harvested at Peak Nutrition:</strong> Every crop is harvested exactly on Friday night or early Saturday morning to capture maximum enzyme density before it drops on your porch.</li>
+                <li><strong>Strict Micro-Batch Logistics:</strong> We grow specifically to order. Your greens are transferred into local ventilation containers with no mid-route processing delays or extended storage times.</li>
+            </ul>
         </div>
         <h2 id="about-us" class="green-accent-h2">Our Story</h2>
         <div class="card green-border-card" style="margin-top: 25px; padding: 30px; background: #ffffff;">
