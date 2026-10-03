@@ -248,20 +248,23 @@
             color: white; 
         }
 
-        /* Premium Floating Cards (Replaces Hard Blueprint Borders) */
-        .card { 
-            border: 1px solid #f0f2ed; /* Replaced thick charcoal with a faint, clean anchor border */
-            border-radius: 12px; /* Smooth card rounding */
-            padding: 24px; 
-            background: #ffffff; 
-            box-shadow: 0 4px 15px rgba(35, 47, 62, 0.04); /* Soft cloud-like shadow */
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Advanced smooth bounce transition */
-        }
-        .card:hover {
-            transform: translateY(-4px); /* Card physically lifts up slightly when interacted with */
-            box-shadow: 0 10px 25px rgba(35, 47, 62, 0.08); /* Shadow deepens to look closer to the eye */
-            border-color: var(--primary);
-        }
+        /* Premium Floating Cards (Frosted Edge Upgrade) */
+.card { 
+    border: 1px solid rgba(240, 242, 237, 0.8); 
+    border-radius: 16px; 
+    padding: 24px; 
+    background: #ffffff; 
+    box-shadow: 0 4px 20px rgba(35, 47, 62, 0.03), 0 1px 3px rgba(0, 0, 0, 0.01);
+    
+    /* ⚡ Advanced Premium Transition Curve */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Softly lifts closer to the eye */
+    box-shadow: 0 12px 30px rgba(35, 47, 62, 0.07); /* Deepens the shadow naturally */
+    border-color: var(--primary);
+}
 
         /* Soft Green Card Accent Variant */
         .green-border-card {
