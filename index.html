@@ -12,45 +12,46 @@
             --bg-light: #fcfdfa; 
             --text-main: #232f3e; 
         }
-               /* 🚨 INFINITE SMOOTH SCROLLING TICKER ENGINE */
-.harvest-ticker {
-    background-color: #ef6c00; /* High-pop harvest orange */
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 0; /* Clear vertical padding only */
-    border-bottom: 2px solid var(--border-color);
-    overflow: hidden; /* Mask out text outside the screen width */
-    position: relative;
-    width: 100%;
-    white-space: nowrap; /* FORCES text onto a single continuous line */
-}
 
-/* The structural scrolling track container */
-.ticker-wrap {
-    display: inline-block;
-    padding-left: 100%; /* Delays the start so it glides in smoothly */
-    animation: infinite-crawl 25s linear infinite; /* Ultra-smooth, looping pace */
-}
+        /* 🚨 INFINITE SMOOTH SCROLLING TICKER ENGINE */
+        .harvest-ticker {
+            background-color: #ef6c00; /* High-pop harvest orange */
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 0; /* Clear vertical padding only */
+            border-bottom: 2px solid var(--border-color);
+            overflow: hidden; /* Mask out text outside the screen width */
+            position: relative;
+            width: 100%;
+            white-space: nowrap; /* FORCES text onto a single continuous line */
+        }
 
-.ticker-item {
-    display: inline-block;
-    padding-right: 40px; /* Generous spacing between message loops */
-}
+        /* The structural scrolling track container */
+        .ticker-wrap {
+            display: inline-block;
+            padding-left: 100%; /* Delays the start so it glides in smoothly */
+            animation: infinite-crawl 25s linear infinite; /* Ultra-smooth, looping pace */
+        }
 
-@keyframes infinite-crawl {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
-}
+        .ticker-item {
+            display: inline-block;
+            padding-right: 40px; /* Generous spacing between message loops */
+        }
 
-@media (max-width: 650px) {
-    .harvest-ticker {
-        font-size: 0.72rem;
-        padding: 6px 0;
-    }
-}
+        @keyframes infinite-crawl {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        @media (max-width: 650px) {
+            .harvest-ticker {
+                font-size: 0.72rem;
+                padding: 6px 0;
+            }
+        }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -97,12 +98,13 @@
             font-weight: 700;
             border: 1px solid var(--dark);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
         .navbar .nav-order-btn:hover { 
             background-color: var(--dark); 
         }
 
-                /* ⚡ Dynamic Navbar Highlight Glow */
+        /* ⚡ Dynamic Navbar Highlight Glow */
         .navbar a.active {
             color: var(--dark) !important;
             border-bottom: 2px solid var(--primary);
@@ -110,30 +112,28 @@
             transition: all 0.2s ease;
         }
 
-       /* Mobile Breakpoint Adjustment for Sticky Menu (Phones) */
-@media (max-width: 650px) {
-    .navbar {
-        padding: 10px 12px;
-        gap: 10px;
-    }
-    
-    /* 🎯 THE VISUAL PEEK: Gap width adjusted to slice the menu links perfectly on mobile phone edges */
-    .navbar-links {
-        gap: 22px; 
-        overflow-x: auto;
-        white-space: nowrap;
-        padding-bottom: 2px;
-        -webkit-overflow-scrolling: touch;
-    }
-    .navbar-links::-webkit-scrollbar { 
-        display: none !important; /* Keeps a clean, high-end app aesthetic */
-    }
+        /* Mobile Breakpoint Adjustment for Sticky Menu (Phones) */
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 10px 12px;
+                gap: 10px;
+            }
+            
+            /* 🎯 THE VISUAL PEEK: Gap width adjusted to slice the menu links perfectly on mobile phone edges */
+            .navbar-links {
+                gap: 22px; 
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 2px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .navbar-links::-webkit-scrollbar { 
+                display: none !important; /* Keeps a clean, high-end app aesthetic */
+            }
 
-    .navbar a { font-size: 0.78rem; }
-    .navbar .nav-order-btn { padding: 6px 12px; font-size: 0.78rem; }
-}
-
-
+            .navbar a { font-size: 0.78rem; }
+            .navbar .nav-order-btn { padding: 6px 12px; font-size: 0.78rem; }
+        }
         .outer-border {
             border: 2px solid var(--border-color);
             max-width: 800px;
@@ -211,8 +211,8 @@
             display: inline-block;
             margin-bottom: 5px;
         }
-        /* --- MODERNIZED INTERACTIVE UTILITIES --- */
 
+        /* --- MODERNIZED INTERACTIVE UTILITIES --- */
         .btn-group { margin-top: 20px; }
         
         /* Smooth Global Button Physics */
@@ -229,9 +229,8 @@
             border: 1px solid var(--text-main);
             border-radius: 6px; /* Softened crisp corner angles */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            
-            /* ⚡ Smooth Color Transition */
             transition: all 0.3s ease; 
+            cursor: pointer;
         }
         .btn:hover { 
             background-color: var(--primary); 
@@ -253,6 +252,7 @@
             margin-top: 10px; 
             font-size: 0.85rem;
             transition: all 0.25s ease;
+            cursor: pointer;
         }
         .btn-sec:hover { 
             background-color: var(--primary); 
@@ -260,39 +260,46 @@
         }
 
         /* Premium Floating Cards (Frosted Edge Upgrade) */
-.card { 
-    border: 1px solid rgba(240, 242, 237, 0.8); 
-    border-radius: 16px; 
-    padding: 24px; 
-    background: #ffffff; 
-    box-shadow: 0 4px 20px rgba(35, 47, 62, 0.03), 0 1px 3px rgba(0, 0, 0, 0.01);
-    
-    /* ⚡ Advanced Premium Transition Curve */
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
-}
+        .card { 
+            border: 1px solid rgba(240, 242, 237, 0.8); 
+            border-radius: 16px; 
+            padding: 24px; 
+            background: #ffffff; 
+            box-shadow: 0 4px 20px rgba(35, 47, 62, 0.03), 0 1px 3px rgba(0, 0, 0, 0.01);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
 
-.card:hover {
-    transform: translateY(-5px); /* Softly lifts closer to the eye */
-    box-shadow: 0 12px 30px rgba(35, 47, 62, 0.07); /* Deepens the shadow naturally */
-    border-color: var(--primary);
-}
-/* 🟢 Live Dashboard Status Pulse Animation */
-@keyframes status-pulse {
-    0% { opacity: 0.4; transform: scale(0.95); }
-    50% { opacity: 1; transform: scale(1.05); }
-    100% { opacity: 0.4; transform: scale(0.95); }
-}
-.live-pulse-dot {
-    display: inline-block;
-    width: 9px;
-    height: 9px;
-    background-color: #2e7d32; /* Matches your beautiful farm green */
-    border-radius: 50%;
-    margin-right: 8px;
-    vertical-align: middle;
-    animation: status-pulse 2s infinite ease-in-out;
-    box-shadow: 0 0 8px rgba(46, 125, 50, 0.6);
-}
+        /* ⚡ Clickable Pricing Card Optimization Elements */
+        .card.clickable-card {
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .card.clickable-card:hover {
+            transform: translateY(-8px); /* Softly lifts closer to the eye */
+            box-shadow: 0 12px 30px rgba(35, 47, 62, 0.07); /* Deepens the shadow naturally */
+            border-color: var(--primary);
+        }
+        .card.clickable-card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(35, 47, 62, 0.04);
+        }
+        /* 🟢 Live Dashboard Status Pulse Animation */
+        @keyframes status-pulse {
+            0% { opacity: 0.4; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.4; transform: scale(0.95); }
+        }
+        .live-pulse-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background-color: #2e7d32; /* Matches your beautiful farm green */
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            animation: status-pulse 2s infinite ease-in-out;
+            box-shadow: 0 0 8px rgba(46, 125, 50, 0.6);
+        }
         /* Soft Green Card Accent Variant */
         .green-border-card {
             border: 1px solid #e1ebe2 !important;
@@ -314,81 +321,58 @@
             font-family: "Times New Roman", Times, serif;
             font-size: 2.5rem; 
             transition: background-color 0.2s ease;
-       }
-ul { 
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-li { 
-    margin-bottom: 6px; 
-    padding-left: 15px; 
-    position: relative; 
-    font-size: 0.95rem; 
-}
-li::before { 
-    content: "▪"; 
-    color: var(--primary); 
-    position: absolute; 
-    left: 0; 
-    font-size: 0.8rem; 
-}
+        }
+        
+        ul { 
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li { 
+            margin-bottom: 6px; 
+            padding-left: 15px; 
+            position: relative; 
+            font-size: 0.95rem; 
+        }
+        li::before { 
+            content: "▪"; 
+            color: var(--primary); 
+            position: absolute; 
+            left: 0; 
+            font-size: 0.8rem; 
+        }
 
-/* 🎯 PREMIUM UPGRADE: Uses your square logo asset ONLY for Clean-Crop Standards */
-.crop-standards li {
-    padding-left: 32px; /* Extra spacing so the text clears your logo */
-    margin-bottom: 14px;
-}
-ul { 
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-li { 
-    margin-bottom: 6px; 
-    padding-left: 15px; 
-    position: relative; 
-    font-size: 0.95rem; 
-}
-li::before { 
-    content: "▪"; 
-    color: var(--primary); 
-    position: absolute; 
-    left: 0; 
-    font-size: 0.8rem; 
-}
+        /* 🎯 PREMIUM UPGRADE: Uses your square logo asset ONLY for Clean-Crop Standards */
+        .crop-standards li {
+            padding-left: 32px; /* Extra spacing so the text clears your logo */
+            margin-bottom: 14px;
+        }
+        .crop-standards li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background-image: url("logo-square.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: #ffffff; /* Forces a crisp white mask background under the sprout logo */
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06); /* Adds a faint modern shadow depth */
+            filter: invert(1) hue-rotate(140deg) brightness(0.95);
+        }
 
-/* 🎯 PREMIUM UPGRADE: Uses your square logo asset ONLY for Clean-Crop Standards */
-.crop-standards li {
-    padding-left: 32px; /* Extra spacing so the text clears your logo */
-    margin-bottom: 14px;
-}
-.crop-standards li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 2px;
-    width: 20px;
-    height: 20px;
-    background-image: url("logo-square.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #ffffff; /* Forces a crisp white mask background under the sprout logo */
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06); /* Adds a faint modern shadow depth */
-        filter: invert(1) hue-rotate(140deg) brightness(0.95);
-}
-
-.price-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-.price-table th, .price-table td {
-    border: 1px solid var(--border-color);
-    padding: 12px;
-    text-align: left;
-}
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .price-table th, .price-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
 
         .price-table th { background-color: #f4f4f4; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
         .price-tier { font-weight: bold; color: var(--dark); }
@@ -401,7 +385,8 @@ li::before {
         .recipe-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; font-size: 1rem; }
         footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); }
         .footer-slogan { font-style: italic; margin-bottom: 10px; color: var(--primary); font-weight: 600; }
-                /* Multi-Route Scannable Tracking Elements */
+        
+        /* Multi-Route Scannable Tracking Elements */
         .progress-container {
             background: #f4f9f1;
             border: 1px solid #e2ebd9;
@@ -436,80 +421,140 @@ li::before {
             height: 16px;
         }
         .progress-bar-fill {
-    background: var(--primary);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-align: center;
-    line-height: 16px;
-    
-    /* ⚡ THE FLASHING EFFECT: No more dots, just a smooth glowing bar! */
-    animation: progress-flash 2.5s infinite ease-in-out;
-}
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 16px;
+            animation: progress-flash 2.5s infinite ease-in-out;
+        }
 
-@keyframes progress-flash {
-    0% {
-        opacity: 0.85;
-        filter: brightness(0.95);
-    }
-    50% {
-        opacity: 1;
-        filter: brightness(1.25); /* Gives the bar fill a rich, ambient glow */
-    }
-    100% {
-        opacity: 0.85;
-        filter: brightness(0.95);
-    }
-}
+        @keyframes progress-flash {
+            0% { opacity: 0.85; filter: brightness(0.95); }
+            50% { opacity: 1; filter: brightness(1.25); }
+            100% { opacity: 0.85; filter: brightness(0.95); }
+        }
         .progress-caption {
             font-size: 0.8rem;
             font-style: italic;
             color: #555555;
             line-height: 1.4;
         }
-   /* 🌻 BALANCED 2-AND-2 MATRIX FOR CROP VARIETIES & RECIPES */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
 
-/* 💰 PERFECT STRAIGHT LINE ROW FOR YOUR 3 PRICING TIERS */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 25px;
-    margin-bottom: 30px;
-}
+        /* 🌻 BALANCED 2-AND-2 MATRIX FOR CROP VARIETIES & RECIPES */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
 
-/* 📱 SMOOTH AUTO-STACKING FOR SMARTPHONES */
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-}
- </style>
+        /* 💰 PERFECT STRAIGHT LINE ROW FOR YOUR 3 PRICING TIERS */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+
+        /* 📱 SMOOTH AUTO-STACKING FOR SMARTPHONES */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        /* 🛒 HIGH-CONVERTING FROSTED GLASS OVERLAY SYSTEM MODAL (TALLY INTEGRATION) */
+        .order-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(35, 47, 62, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 15px;
+        }
+        .order-modal-overlay.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .order-modal-window {
+            background: #ffffff;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            height: 85vh;
+            max-height: 700px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .order-modal-overlay.is-active .order-modal-window {
+            transform: scale(1);
+        }
+        .modal-close-trigger {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: #f4f4f4;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.1rem;
+            line-height: 28px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 2010;
+            color: var(--text-main);
+            transition: background 0.2s ease;
+        }
+        .modal-close-trigger:hover {
+            background: #e0e0e0;
+        }
+        .modal-iframe-container {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-          <!-- 🚨 HIGH-POP LIVE CONTINUOUS SCROLLING TICKER -->
-<div class="harvest-ticker">
-    <div class="ticker-wrap">
-        <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING ON TUESDAY AT 9:00 PM</span>
-        <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
-        <!-- Duplicate message loop to ensure a continuous, gap-free flow -->
-        <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING ON TUESDAY AT 9:00 PM</span>
-        <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
+
+    <!-- 🚨 HIGH-POP LIVE CONTINUOUS SCROLLING TICKER -->
+    <div class="harvest-ticker">
+        <div class="ticker-wrap">
+            <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING ON TUESDAY AT 9:00 PM</span>
+            <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
+            <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING ON TUESDAY AT 9:00 PM</span>
+            <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
+        </div>
     </div>
-</div>
-        <nav class="navbar">
+
+    <nav class="navbar">
         <!-- 1. Your Brand New Horizontal Logo -->
         <a href="#" class="nav-brand-logo">
             <img src="logo-horizontal.png" alt="Legacy Farms Home" style="height: 28px; width: auto; display: block; vertical-align: middle;">
@@ -526,7 +571,7 @@ li::before {
         </div>
 
         <!-- 3. Green High-Pop Mobile Action Button -->
-        <a href="PASTE_YOUR_SIGNUP_FORM_LINK_HERE" class="nav-order-btn">Order Now</a>
+        <button class="nav-order-btn open-checkout-trigger">Order Now</button>
     </nav>
 
 
@@ -541,9 +586,9 @@ li::before {
             </div>
 
             <div class="btn-group">
-                <a href="PASTE_YOUR_SIGNUP_FORM_LINK_HERE" class="btn">Secure Your Porch Spot</a>
+                <button class="btn open-checkout-trigger">Secure Your Porch Spot</button>
                 <br>
-                <a href="PASTE_YOUR_FEEDBACK_FORM_LINK_HERE" class="btn-sec">Leave Farm Feedback</a>
+                <button class="btn-sec open-checkout-trigger">Leave Farm Feedback</button>
             </div>
             
             <p style="font-size: 0.9rem; margin-top: 15px; color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">
@@ -567,223 +612,168 @@ li::before {
             </div>
         </div>
 
-                    <h2 id="pricing">Subscription Pricing Plans</h2>
-
-<div class="pricing-grid">
-    
-    <!-- Tier 1 -->
-    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-            <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Individual</span>
-            <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🟢 The Single Box Choice</h3>
-            <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Two 2oz Clamshells of your chosen variety loop delivered right to your porch.</p>
-        </div>
-        <div style="margin-top: 20px; display: flex; align-items: baseline; gap: 4px;">
-            <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$12</span>
-            <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
-        </div>
-    </div>
-
-    <!-- Tier 2 -->
-    <div class="card green-border-card" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
-        <!-- Popularity Ribbon -->
-        <span style="position: absolute; top: -12px; right: 15px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Most Popular</span>
-        
-        <div>
-            <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--primary);">Best Value</span>
-            <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🔥 The Double Box Deal</h3>
-            <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Four 2oz Clamshells dropped to your porch. Perfect for couples and daily morning smoothie boosts.</p>
-        </div>
-        <div style="margin-top: 20px;">
-            <div style="display: flex; align-items: baseline; gap: 4px;">
-                <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$20</span>
-                <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+        <h2 id="pricing">Subscription Pricing Plans</h2>
+        <div class="pricing-grid">
+            
+            <!-- Tier 1 -->
+            <div class="card clickable-card" data-plan="single-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Individual</span>
+                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🟢 The Single Box Choice</h3>
+                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Two 2oz Clamshells of your chosen variety loop delivered right to your porch.</p>
+                </div>
+                <div style="margin-top: 20px; display: flex; align-items: baseline; gap: 4px;">
+                    <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$12</span>
+                    <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+                </div>
             </div>
-            <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $4 Every Week</span>
-        </div>
-    </div>
 
-    <!-- Tier 3 -->
-    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-            <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Family Size</span>
-            <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">👑 The Triple Box Plan</h3>
-            <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Six 2oz Clamshells dropped to your porch. Best choice for large households, daily juicers, and heavy salad eaters.</p>
-        </div>
-        <div style="margin-top: 20px;">
-            <div style="display: flex; align-items: baseline; gap: 4px;">
-                <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$28</span>
-                <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+            <!-- Tier 2 -->
+            <div class="card clickable-card green-border-card" data-plan="double-box" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+                <!-- Popularity Ribbon -->
+                <span style="position: absolute; top: -12px; right: 15px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Most Popular</span>
+                
+                <div>
+                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--primary);">Best Value</span>
+                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🔥 The Double Box Deal</h3>
+                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Four 2oz Clamshells dropped to your porch. Perfect for couples and daily morning smoothie boosts.</p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div style="display: flex; align-items: baseline; gap: 4px;">
+                        <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$20</span>
+                        <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+                    </div>
+                    <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $4 Every Week</span>
+                </div>
             </div>
-            <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $8 Every Week</span>
-        </div>
-    </div>
 
-</div>
+            <!-- Tier 3 -->
+            <div class="card clickable-card" data-plan="triple-plan" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Family Size</span>
+                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">👑 The Triple Box Plan</h3>
+                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Six 2oz Clamshells dropped to your porch. Best choice for large households, daily juicers, and heavy salad eaters.</p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div style="display: flex; align-items: baseline; gap: 4px;">
+                        <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$28</span>
+                        <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+                    </div>
+                    <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $8 Every Week</span>
+                </div>
+            </div>
+        </div>
         <h2 id="varieties">Our Superfood Varieties</h2>
         <div class="grid">
             <div class="card">
-                <div class="crop-img-placeholder">🌻</div>
-                <h3>🌻 Crunchy Sunflower Shoots</h3>
-                <ul>
-                    <li><strong>Taste:</strong> Nutty, crisp, and robust</li>
-                    <li>20-25% Complete Plant Protein</li>
-                    <li>50% Daily Value of Vitamin E</li>
-                    <li>Rich in natural energy-giving iron</li>
-                </ul>
-            </div>
-            <div class="card">
                 <div class="crop-img-placeholder">🌱</div>
-                <span class="kid-badge">✨ Kid-Approved (Sweet)</span>
-                <h3>🌱 Sweet Pea Shoots</h3>
-                <ul>
-                    <li><strong>Taste:</strong> Sweet, just like crisp snap peas</li>
-                    <li>7x More Vitamin C than blueberries</li>
-                    <li>4x More Vitamin A than tomatoes</li>
-                    <li>High in bone-building Vitamin K</li>
-                </ul>
+                <span class="kid-badge">🧒 Kid Approved • Mild</span>
+                <p class="recipe-title">Premium Waltham Broccoli</p>
+                <p style="font-size: 0.9rem; color: #555555;">Crisp, clean taste. Contains exceptionally high levels of Sulforaphane to aid cell health and clean up body toxins.</p>
             </div>
             <div class="card">
-                <div class="crop-img-placeholder">🥦</div>
-                <span class="kid-badge">✨ Kid-Approved (Mild)</span>
-                <h3>🥦 Healthy Broccoli Shoots</h3>
-                <ul>
-                    <li><strong>Taste:</strong> Mild, fresh, and exceptionally gentle</li>
-                    <li>Up to 50x more Sulforaphane than mature grocery broccoli</li>
-                    <li>Massive cell-protecting antioxidant load</li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="crop-img-placeholder">🌶️</div>
-                <h3>🌶️ Zesty Daikon Radish</h3>
-                <ul>
-                    <li><strong>Taste:</strong> Spicy, bold, peppery radish kick</li>
-                    <li>Beautiful, vibrant purple and green stems</li>
-                    <li>High in live digestive enzymes and Vitamin C</li>
-                </ul>
+                <div class="crop-img-placeholder">🌿</div>
+                <span class="kid-badge" style="background-color: var(--primary);">💪 Nutrient Monster</span>
+                <p class="recipe-title">China Rose Radish</p>
+                <p style="font-size: 0.9rem; color: #555555;">Bold, pleasantly spicy kick. Packed with vital digestive enzymes, vitamin C, and foundational trace minerals.</p>
             </div>
         </div>
 
-        <h2>Our Clean-Crop Standards</h2>
-<div class="step-list">
-    <div class="step-item">
-        <ul class="crop-standards">
-            <li><strong>Controlled Indoor Growing:</strong> Cultivated entirely indoors inside a hyper-clean, climate-controlled environment. Free from bugs, outdoor pollution, and unpredictable weather.</li>
-            <li><strong>Soil-Free Harvesting:</strong> All crops are cleanly clipped well above the soil line. Zero dirt or growing media ever enters your kitchen container.</li>
-            <li><strong>Pure Water Only:</strong> Grown utilizing filtered drinking water with absolutely zero chemical pesticides, sprays, or fertilizers.</li>
-            <li><strong>The Porch Swap:</strong> Delivered in sanitized, temperature-shielded packing to protect quality from the Indiana weather.</li>
-        </ul>
-    </div>
-</div>
-        <h2 id="recipes" class="green-accent-h2">⚡ Quick Ways to Eat Your Greens</h2>
+        <h2 id="recipes">Quick Ways to Eat Your Greens</h2>
         <div class="grid">
-            <div class="card green-border-card">
-                <p class="recipe-title">🥤 The 5-Second Smoothie Boost</p>
-                <p style="font-size: 0.9rem; color: #333;">Toss a heavy handful of Sweet Pea or Broccoli shoots directly into your morning fruit blender. They vanish completely into the fruit flavor while packing a massive nutrient punch.</p>
+            <div class="card">
+                <p class="recipe-title">🍳 The 5-Second Eggs Topper</p>
+                <p style="font-size: 0.9rem; color: #555555;">Pinch a generous handful of fresh broccoli microgreens and drop them right over your hot morning eggs or avocado toast. Adds a distinct gourmet finish.</p>
             </div>
-            <div class="card green-border-card">
-                <p class="recipe-title">🥪 The Premium Sandwich Crunch</p>
-                <p style="font-size: 0.9rem; color: #333;">Ditch soggy shredded lettuce. Layer a thick bedding of crunchy Sunflower shoots inside your wraps, burgers, or sandwiches for an unbeatably fresh crisp.</p>
+            <div class="card">
+                <p class="recipe-title">🥤 The Clean Seeding Smoothie Boost</p>
+                <p style="font-size: 0.9rem; color: #555555;">Toss an entire handful of microgreens into your daily morning blender mix. Blends down completely with zero gritty texture while introducing raw plant energy.</p>
             </div>
-            <div class="card green-border-card">
-                <p class="recipe-title">🥗 The Ultimate 2-Minute Salad Base</p>
-                <p style="font-size: 0.9rem; color: #333;">Mix equal parts Sunflower and Pea shoots, toss lightly with cherry tomatoes, olive oil, and a splash of balsamic dressing for a gourmet side salad.</p>
+            <div class="card">
+                <p class="recipe-title">🥪 Sandwich Depth Elevator</p>
+                <p style="font-size: 0.9rem; color: #555555;">Swap out plain water-logged iceberg lettuce for a dense structural layer of China Rose Radish greens to inject crunch and continuous flavor profiles.</p>
             </div>
-            <div class="card green-border-card">
-                <p class="recipe-title">🌮 Taco, Burger & Dinner Toppers</p>
-                <p style="font-size: 0.9rem; color: #333;">Throw a raw crop of peppery Daikon Radish microgreens right over steaks, tacos, or hot take-out pizza. The ambient heat softens the stems perfectly without destroying vital enzymes.</p>
+            <div class="card">
+                <p class="recipe-title">🥗 The Living Base Salad Accent</p>
+                <p style="font-size: 0.9rem; color: #555555;">Fold your favorite microgreens completely into your dinner salad base right before serving. Enhances nutritional content by up to 40x per bite.</p>
             </div>
         </div>
+        <h2 id="about-us" class="green-accent-h2">Our Story</h2>
+        <div class="card green-border-card" style="margin-top: 25px; padding: 30px; background: #ffffff;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
+                <span style="font-size: 1.5rem;">🚜</span>
+                <p style="font-style: italic; color: var(--primary); font-weight: 700; font-size: 1.15rem; margin: 0; line-height: 1.3;">
+                    "Tomorrow's Harvest, Grown Locally Today"
+                </p>
+            </div>
 
-                              <h2 id="about-us" class="green-accent-h2">Our Story</h2>
-
-<!-- ⚡ FLOATING PREMIUM STORY CARD -->
-<div class="card green-border-card" style="margin-top: 25px; padding: 30px; background: #ffffff;">
-    
-    <!-- CLEAN SINGLE TAGLINE HEADER WITH TRACTOR -->
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
-        <span style="font-size: 1.5rem;">🚜</span>
-        <p style="font-style: italic; color: var(--primary); font-weight: 700; font-size: 1.15rem; margin: 0; line-height: 1.3;">
-            "Tomorrow's Harvest, Grown Locally Today"
-        </p>
-    </div>
-
-    <div style="line-height: 1.75; font-size: 0.98rem; color: var(--text-main); display: flex; flex-direction: column; gap: 16px;">
-        <p><strong style="color: var(--dark); font-size: 1.05rem;">We wanted to grow something healthy for our own family at home.</strong> That is how Legacy Farms started.</p>
-        
-        <p>I’m a diesel technician by trade, so I’ve always enjoyed figuring out how things work, solving problems, and finding ways to make things better. When I decided to build Legacy Farms, I took the same approach—learning as I went and building the farm one piece at a time.</p>
-        
-        <p>From the website and brand to the growing systems behind the farm, everything has been built from the ground up with one goal in mind: grow fresh, nutritious microgreens that we’re proud to put on our own table.</p>
-        
-        <!-- 🎯 YOUR VISION HIGHLIGHT POP -->
-        <p><strong style="color: var(--primary); font-size: 1.05rem;">The goal is simple: grow fresh microgreens and make it easy for local families to add something healthy to their everyday meals.</strong></p>
-        
-        <p>What started as something for our family quickly became something we wanted to share with the people around us.</p>
-        
-        <!-- 🏅 MODERN COMMUNITY COACHING CALLOUT -->
-        <div style="background: #f4f9f1; border-left: 4px solid var(--primary); padding: 12px 16px; margin: 5px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px;">
-            <p style="margin: 0; font-weight: 600; color: var(--dark);">
-                Coaching the Next Generation
-            </p>
-            <p style="margin: 0; font-style: italic; color: #444444;">
-                When I'm not tuning engines or balancing our indoor climate setups, you can usually find me coaching youth sports right here in McCordsville. Community and discipline mean everything to our family.
-            </p>
+            <div style="line-height: 1.75; font-size: 0.98rem; color: var(--text-main); display: flex; flex-direction: column; gap: 16px;">
+                <p><strong style="color: var(--dark); font-size: 1.05rem;">We wanted to grow something healthy for our own family at home.</strong> That is how Legacy Farms started.</p>
+                
+                <p>I’m a diesel technician by trade, so I’ve always enjoyed figuring out how things work, solving problems, and finding ways to make things better. When I decided to build Legacy Farms, I took the same approach—learning as I went and building the farm one piece at a time.</p>
+                
+                <p>From the website and brand to the growing systems behind the farm, everything has been built from the ground up with one goal in mind: grow fresh, nutritious microgreens that we’re proud to put on our own table.</p>
+                
+                <p><strong style="color: var(--primary); font-size: 1.05rem;">The goal is simple: grow fresh microgreens and make it easy for local families to add something healthy to their everyday meals.</strong></p>
+                
+                <p>What started as something for our family quickly became something we wanted to share with the people around us.</p>
+                
+                <div style="background: #f4f9f1; border-left: 4px solid var(--primary); padding: 12px 16px; margin: 5px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px;">
+                    <p style="margin: 0; font-weight: 600; color: var(--dark);">
+                        Coaching the Next Generation
+                    </p>
+                    <p style="margin: 0; font-style: italic; color: #444444;">
+                        When I'm not tuning engines or balancing our indoor climate setups, you can usually find me coaching youth sports right here in McCordsville. Community and discipline mean everything to our family.
+                    </p>
+                </div>
+                
+                <p>We approach microgreen cultivation with the exact same focus—building precision systems, tracking daily progress data, and working systematically to ensure what reaches your doorstep is the cleanest, highest-quality living nutrition possible.</p>
+                
+                <p>Thank you for supporting a hyper-local McCordsville venture and sharing this journey with us.</p>
+            </div>
         </div>
-        
-        <p>We approach microgreen cultivation with the exact same focus—building precision systems, tracking daily progress data, and working systematically to ensure what reaches your doorstep is the cleanest, highest-quality living nutrition possible.</p>
-        
-        <p>Thank you for supporting a hyper-local McCordsville venture and sharing this journey with us.</p>
-    </div>
-</div>
- 
-
-        <!-- 🚀 THIS LIVES INDEPENDENTLY ON THE BASEGROUND -->
         <h2 id="waitlist" class="green-accent-h2">Outside Our Delivery Zone?</h2>
         <div class="step-list">
             <div class="step-item">
                 <p style="font-size: 0.95rem; margin-bottom: 15px;">We currently deliver exclusively to the <strong>Woodhaven</strong> neighborhood to keep our routes tight and our crops perfectly fresh. However, we love feeding new communities!</p>
                 
-                <!-- 🔥 SCANNABLE GEIST & MCCORDSVILLE ROUTE EXPANSION TRACKER -->
                 <div class="progress-container">
                     <p class="progress-title">🚚 Neighborhood Expansion Leaderboard:</p>
                     
-                   <!-- Neighborhood 1 -->
-<div class="route-row">
-    <div class="route-info">
-        <span>📍 Austin Lakes / Geist Shores</span>
-        <strong>3/10 Houses Joined</strong>
-    </div>
-    <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 30%;">Gathering Steam</div>
-    </div>
-</div>
+                    <div class="route-row">
+                        <div class="route-info">
+                            <span>📍 Austin Lakes / Geist Shores</span>
+                            <strong>3/10 Houses Joined</strong>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 30%;">Gathering Steam</div>
+                        </div>
+                    </div>
 
-<!-- Neighborhood 2 -->
-<div class="route-row">
-    <div class="route-info">
-        <span>📍 Emerald Springs</span>
-        <strong>2/10 Houses Joined</strong>
-    </div>
-    <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 20%; background: #66bb6a;">Early Interest</div>
-    </div>
-</div>
+                    <div class="route-row">
+                        <div class="route-info">
+                            <span>📍 Emerald Springs</span>
+                            <strong>2/10 Houses Joined</strong>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 20%; background: #66bb6a;">Early Interest</div>
+                        </div>
+                    </div>
 
-<!-- Neighborhood 3 -->
-<div class="route-row">
-    <div class="route-info">
-        <span>📍 Windward Pass / Geist Overlook</span>
-        <strong>1/10 Houses Joined</strong>
-    </div>
-    <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 10%; background: #9ccc65;">Route Pending</div>
-    </div>
-</div>
+                    <div class="route-row">
+                        <div class="route-info">
+                            <span>📍 Windward Pass / Geist Overlook</span>
+                            <strong>1/10 Houses Joined</strong>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 10%; background: #9ccc65;">Route Pending</div>
+                        </div>
+                    </div>
                     <p class="progress-caption" style="margin-top: 15px;">🎯 Don't see your neighborhood? Join the waitlist below. Once 10 households from your immediate community sign up, we officially build and unlock your Saturday delivery route!</p>
                 </div>
 
                 <p style="font-size: 0.95rem; margin-bottom: 20px;">If you live in a surrounding McCordsville or Geist area, join our expansion waitlist below.</p>
-                <a href="PASTE_YOUR_WAITLIST_FORM_LINK_HERE" class="btn-sec" style="display: inline-block; margin-top: 0; border: 2px solid var(--primary); color: var(--dark);">Join the Neighborhood Waitlist</a>
+                <button class="btn-sec open-checkout-trigger" style="display: inline-block; margin-top: 0; border: 2px solid var(--primary); color: var(--dark);">Join the Neighborhood Waitlist</button>
             </div>
         </div>
 
@@ -792,11 +782,18 @@ li::before {
             <p style="font-weight: 600;">© 2026 Legacy Farms - McCordsville, IN</p>
             <p style="font-size: 0.8rem; color: #444444; margin-top: 5px;">Indiana Home-Based Vendor Compliant • Direct-To-Consumer Delivery Only</p>
             <p style="font-size: 0.75rem; color: #555555; margin-top: 10px; line-height: 1.3;">
-                *Nutritional metrics are conservative values verified by the <a href="https://usda.gov" style="color: #2e7d32; text-decoration: none; font-weight: 600;">USDA FoodData Central Database</a> and landmark nutritional profiling studies from the University of Maryland.
+                *Nutritional metrics are conservative values verified by the <a href="https://usda.gov" style="color: #2e7d32; text-decoration: none; font-weight: 600;" target="_blank">USDA FoodData Central Database</a> and landmark nutritional profiling studies from the University of Maryland.
             </p>
         </footer>
     </div>
-            <!-- 🔄 Automated Sticky Bar Scroll Spy Script with Horizontal Auto-Glide -->
+    <!-- 🛒 TALLY IFRAME INJECTION MODULE CONTAINER -->
+    <div class="order-modal-overlay" id="checkoutModal">
+        <div class="order-modal-window">
+            <div class="modal-close-trigger" id="closeModalBtn">×</div>
+            <iframe class="modal-iframe-container" id="formIframe" src="about:blank" title="Legacy Farms Secure Checkout Form"></iframe>
+        </div>
+    </div>
+
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver(entries => {
@@ -806,10 +803,8 @@ li::before {
                         document.querySelectorAll('.navbar a').forEach(navLink => {
                             if (navLink.getAttribute('href') === `#${id}`) {
                                 navLink.classList.add('active');
-                                
                                 /* 🎯 AUTOMATIC HORIZONTAL NAV SLIDE GLIDE */
                                 navLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                                
                             } else {
                                 navLink.classList.remove('active');
                             }
@@ -821,9 +816,53 @@ li::before {
             document.querySelectorAll('h2[id]').forEach((section) => {
                 observer.observe(section);
             });
+
+            /* ⚡ NATIVE MODAL POPUP LIGHTWEIGHT FLOW CONTROLLER */
+            const checkoutModal = document.getElementById('checkoutModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const formIframe = document.getElementById('formIframe');
+
+            // PLACE YOUR FORM SERVICE BASE LINK HERE (e.g., https://tally.so)
+            const formBaseUrl = "https://tally.so"; 
+
+            function openModal(planName = "") {
+                let targetUrl = formBaseUrl;
+                if(planName) {
+                    // Automatically passes selected box deal down to your form fields
+                    targetUrl += `?plan=${encodeURIComponent(planName)}`;
+                }
+                formIframe.src = targetUrl;
+                checkoutModal.classList.add('is-active');
+                document.body.style.overflow = 'hidden'; // Prevents background double-scrolling
+            }
+
+            function closeModal() {
+                checkoutModal.classList.remove('is-active');
+                document.body.style.overflow = '';
+                formIframe.src = "about:blank"; // Unloads iframe to save user device memory
+            }
+
+            // Click capture loop for buttons and navigation items
+            document.querySelectorAll('.open-checkout-trigger').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openModal();
+                });
+            });
+
+            // Click capture loop for clickable subscription price grid elements
+            document.querySelectorAll('.clickable-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const chosenPlan = card.getAttribute('data-plan');
+                    openModal(chosenPlan);
+                });
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            checkoutModal.addEventListener('click', (e) => {
+                if(e.target === checkoutModal) closeModal();
+            });
         });
     </script>
-
-
 </body>
 </html>
