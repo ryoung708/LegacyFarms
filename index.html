@@ -419,16 +419,16 @@ li::before {
             color: #555555;
             line-height: 1.4;
         }
-        /* Universal Responsive Grid (Great for your 4 product varieties) */
+     /* 🌻 FORCES 4 COLUMNS ON DESKTOP, BACKS UP ON MOBILE */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 30px;
 }
 
-/* Dedicated Pricing Layout (Forces exactly 3 side-by-side on desktop views) */
+/* 💰 FORCES EXACTLY 3 COLUMNS SIDE-BY-SIDE ON DESKTOP */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -437,14 +437,21 @@ li::before {
     margin-bottom: 30px;
 }
 
-/* Mobile Responsiveness Rules for both styles */
-@media (max-width: 768px) {
+/* 📱 PERFECT STACKING MECHANICS FOR TABLETS & MOBILE PHONES */
+@media (max-width: 900px) {
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    .grid {
+        grid-template-columns: 1fr;
         gap: 15px;
     }
     .pricing-grid {
-        grid-template-columns: 1fr; /* Stacks perfectly on your phone under a thumb scroll */
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 }
