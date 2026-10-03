@@ -425,13 +425,31 @@ li::before {
             height: 16px;
         }
         .progress-bar-fill {
-            background: var(--primary);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-align: center;
-            line-height: 16px;
-        }
+    background: var(--primary);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 16px;
+    
+    /* ⚡ THE FLASHING EFFECT: No more dots, just a smooth glowing bar! */
+    animation: progress-flash 2.5s infinite ease-in-out;
+}
+
+@keyframes progress-flash {
+    0% {
+        opacity: 0.85;
+        filter: brightness(0.95);
+    }
+    50% {
+        opacity: 1;
+        filter: brightness(1.25); /* Gives the bar fill a rich, ambient glow */
+    }
+    100% {
+        opacity: 0.85;
+        filter: brightness(0.95);
+    }
+}
         .progress-caption {
             font-size: 0.8rem;
             font-style: italic;
@@ -719,7 +737,7 @@ li::before {
                    <!-- Neighborhood 1 -->
 <div class="route-row">
     <div class="route-info">
-        <span><span class="live-pulse-dot"></span>📍 Austin Lakes / Geist Shores</span>
+        <span>📍 Austin Lakes / Geist Shores</span>
         <strong>3/10 Houses Joined</strong>
     </div>
     <div class="progress-bar-bg">
@@ -730,7 +748,7 @@ li::before {
 <!-- Neighborhood 2 -->
 <div class="route-row">
     <div class="route-info">
-        <span><span class="live-pulse-dot" style="background-color: #ef6c00; box-shadow: 0 0 8px rgba(239, 108, 0, 0.6);"></span>📍 Emerald Springs</span>
+        <span>📍 Emerald Springs</span>
         <strong>2/10 Houses Joined</strong>
     </div>
     <div class="progress-bar-bg">
@@ -741,7 +759,7 @@ li::before {
 <!-- Neighborhood 3 -->
 <div class="route-row">
     <div class="route-info">
-        <span><span class="live-pulse-dot" style="background-color: #78909c; box-shadow: 0 0 8px rgba(120, 144, 156, 0.4);"></span>📍 Windward Pass / Geist Overlook</span>
+        <span>📍 Windward Pass / Geist Overlook</span>
         <strong>1/10 Houses Joined</strong>
     </div>
     <div class="progress-bar-bg">
