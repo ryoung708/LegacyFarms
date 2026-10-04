@@ -884,12 +884,12 @@
                 });
             });
 
-            // 🚚 Click capture loop for your Neighborhood Waitlist button
+                       // 🚚 Click capture loop for your Neighborhood Waitlist button
             document.querySelectorAll('.open-waitlist-trigger').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    // Links cleanly to your future Tally waitlist form URL
-                    formIframe.src = "https://tally.so"; 
+                    // Links cleanly to your verified Tally waitlist form URL
+                    formIframe.src = "https://tally.so/r/5BybPd"; 
                     checkoutModal.classList.add('is-active');
                     document.body.style.overflow = 'hidden'; 
                 });
