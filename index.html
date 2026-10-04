@@ -488,7 +488,7 @@
             background: rgba(35, 47, 62, 0.4);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            z-index: 2000;
+           z-index: 100000 !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -852,7 +852,7 @@
             });
 
             /* ⚡ NATIVE MODAL POPUP LIGHTWEIGHT FLOW CONTROLLER */
-            const checkoutModal = document.getElementById('checkoutModal');
+            const checkoutModal = document.getElementById('orderModalOverlay');
             const closeModalBtn = document.getElementById('closeModalBtn');
             const formIframe = document.getElementById('formIframe');
 
