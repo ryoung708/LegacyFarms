@@ -876,11 +876,22 @@
                 formIframe.src = "about:blank"; // Unloads iframe to save user device memory
             }
 
-            // Click capture loop for buttons and navigation items
+                        // Click capture loop for buttons and navigation items
             document.querySelectorAll('.open-checkout-trigger').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     openModal();
+                });
+            });
+
+            // 🚚 Click capture loop for your Neighborhood Waitlist button
+            document.querySelectorAll('.open-waitlist-trigger').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    // Links cleanly to your future Tally waitlist form URL
+                    formIframe.src = "https://tally.so"; 
+                    checkoutModal.classList.add('is-active');
+                    document.body.style.overflow = 'hidden'; 
                 });
             });
 
