@@ -902,17 +902,14 @@
                     openModal(chosenPlan);
                 });
             });
-            // 💬 Click capture loop for your Leave Farm Feedback button
+                       // 💬 Click capture loop for your Leave Farm Feedback button
             document.querySelectorAll('.open-feedback-trigger').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    
-                    // TARGETS YOUR TALLY FEEDBACK FORM URL
-                    // Replace this with your unique feedback form link once published!
-                    formIframe.src = "https://tally.so"; 
-                    
+                    // Your live Tally feedback link is now officially integrated!
+                    formIframe.src = "https://tally.so/r/5By4do"; 
                     checkoutModal.classList.add('is-active');
-                    document.body.style.overflow = 'hidden'; // Locks background scrolling
+                    document.body.style.overflow = 'hidden'; 
                 });
             });
             closeModalBtn.addEventListener('click', closeModal);
