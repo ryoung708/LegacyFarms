@@ -902,7 +902,19 @@
                     openModal(chosenPlan);
                 });
             });
-
+            // 💬 Click capture loop for your Leave Farm Feedback button
+            document.querySelectorAll('.open-feedback-trigger').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    
+                    // TARGETS YOUR TALLY FEEDBACK FORM URL
+                    // Replace this with your unique feedback form link once published!
+                    formIframe.src = "https://tally.so"; 
+                    
+                    checkoutModal.classList.add('is-active');
+                    document.body.style.overflow = 'hidden'; // Locks background scrolling
+                });
+            });
             closeModalBtn.addEventListener('click', closeModal);
             checkoutModal.addEventListener('click', (e) => {
                 if(e.target === checkoutModal) closeModal();
