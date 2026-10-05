@@ -13,7 +13,7 @@
             --text-main: #232f3e; 
         }
 
-        /* 🚨 INFINITE SMOOTH SCROLLING TICKER ENGINE */
+                /* 🚨 OPTIMIZED SEAMLESS SCROLLING TICKER ENGINE */
         .harvest-ticker {
             background-color: #ef6c00; /* High-pop harvest orange */
             color: #ffffff;
@@ -21,31 +21,32 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            padding: 8px 0; /* Clear vertical padding only */
+            padding: 8px 0;
             border-bottom: 2px solid var(--border-color);
-            overflow: hidden; /* Mask out text outside the screen width */
+            overflow: hidden;
             position: relative;
             width: 100%;
-            white-space: nowrap; /* FORCES text onto a single continuous line */
         }
 
-        /* The structural scrolling track container */
+        /* 🔄 The master container that acts as a flexible horizontal strip */
         .ticker-wrap {
-            display: inline-block;
-            padding-left: 100%; /* Delays the start so it glides in smoothly */
-            animation: infinite-crawl 25s linear infinite; /* Ultra-smooth, looping pace */
+            display: flex; /* Forces items to stay inline dynamically */
+            width: max-content; /* Prevents text from wrapping or cutting early */
+            white-space: nowrap;
+            animation: infinite-crawl 35s linear infinite; /* Increased time to 35s for a clean, easy-to-read pace */
         }
 
         .ticker-item {
             display: inline-block;
-            padding-right: 40px; /* Generous spacing between message loops */
+            padding-right: 80px; /* Generous spacing before the text starts repeating */
+            flex-shrink: 0; /* Prevents text compression */
         }
 
+        /* 🎯 Pure seamless looping math: moving -50% shifts exactly one full set out of view */
         @keyframes infinite-crawl {
             0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
-
         @media (max-width: 650px) {
             .harvest-ticker {
                 font-size: 0.72rem;
