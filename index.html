@@ -551,13 +551,11 @@
 </head>
 <body>
 
-    <!-- 🚨 HIGH-POP LIVE CONTINUOUS SCROLLING TICKER -->
+        <!-- 🚨 DYNAMIC LIVE SCROLLING TICKER ENGINE -->
     <div class="harvest-ticker">
         <div class="ticker-wrap">
-            <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING ON TUESDAY AT 9:00 PM</span>
-            <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
-            <span class="ticker-item">🚨 NEXT SEEDING CYCLE CLOSING ON TUESDAY AT 9:00 PM</span>
-            <span class="ticker-item">📦 Woodhaven Saturday Route Capacity: 4/20 Households Filled</span>
+            <span class="ticker-item" id="tickerTimer1">⏳ CALCULATING HARVEST DEADLINE...</span>
+            <span class="ticker-item" id="tickerTimer2">⏳ CALCULATING HARVEST DEADLINE...</span>
         </div>
     </div>
 
@@ -875,7 +873,50 @@
                 document.body.style.overflow = '';
                 formIframe.src = "about:blank"; // Unloads iframe to save user device memory
             }
-
+            // ⏰ PRECISION CUTOFF ENGINE + LIVE ROUTE CAPACITY INJECTION
+            function updateSeedingCountdown() {
+                const now = new Date();
+                const currentDay = now.getDay(); // 0 = Sun, 1 = Mon, 2 = Tue...
+                
+                // Construct target date for the upcoming Tuesday at 21:00 (9:00 PM)
+                let target = new Date();
+                target.setHours(21, 0, 0, 0);
+                
+                let daysUntilTuesday = (2 - currentDay + 7) % 7;
+                
+                // If it is already Tuesday past 9:00 PM, advance target to NEXT Tuesday
+                if (daysUntilTuesday === 0 && now.getHours() >= 21) {
+                    daysUntilTuesday = 7;
+                }
+                
+                target.setDate(now.getDate() + daysUntilTuesday);
+                
+                // Formatter for printing the exact target cutoff date
+                const options = { month: 'short', day: 'numeric' };
+                const formattedDate = target.toLocaleDateString('en-US', options);
+                
+                const timeDiff = target - now;
+                
+                // Breakdown into clear temporal blocks
+                const d = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((timeDiff % (1000 * 60)) / 1000);
+                
+                // Zero-pad time metrics for premium display symmetry
+                const pad = (num) => String(num).padStart(2, '0');
+                
+                // 🎯 COMBINED SCARCITY + CAPACITY COPY STRAPLINE
+                const timeString = `🚨 NEXT SEEDING CUTOFF: TUESDAY, ${formattedDate.toUpperCase()} AT 9:00 PM EST — CLOSING IN: ${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s (ORDER NOW) • 📦 WOODHAVEN SATURDAY ROUTE CAPACITY: 4/20 HOUSEHOLDS FILLED!`;
+                
+                document.getElementById('tickerTimer1').innerText = timeString;
+                document.getElementById('tickerTimer2').innerText = timeString;
+            }
+            
+            // Fire ticker cycle immediately and lock onto a continuous 1-second pulse
+            updateSeedingCountdown();
+            setInterval(updateSeedingCountdown, 1000);
+            
                         // Click capture loop for buttons and navigation items
             document.querySelectorAll('.open-checkout-trigger').forEach(btn => {
                 btn.addEventListener('click', (e) => {
