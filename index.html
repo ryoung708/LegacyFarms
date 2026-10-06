@@ -548,6 +548,11 @@
             border-radius: 14px;
             overflow: hidden;
         }
+                /* 🔒 Premium Vault Card Elevation & Custom Glow */
+        .card[data-plan="private-allocation"]:hover {
+            border-color: #c5a880 !important;
+            box-shadow: 0 12px 30px rgba(197, 168, 128, 0.18) !important;
+        }
     </style>
 </head>
 <body>
@@ -608,9 +613,9 @@
                 <p class="step-num">Step 1: Secure Your Harvest Box</p>
                 <p style="font-size: 0.95rem;">Click the sign-up button above to claim your neighborhood slot. We grow exclusively to order each week to ensure zero food waste and perfect freshness.</p>
             </div>
-            <div class="step-item">
+                        <div class="step-item">
                 <p class="step-num">Step 2: Saturday Porch Drop (The Cooler Policy)</p>
-                <p style="font-size: 0.95rem;">Every other Saturday morning, your fresh greens are harvested and packed. <strong>Please leave a small cooler or insulated bag out on your porch on Friday night</strong>—we will pop your fresh clamshells straight inside to shield them from the weather!</p>
+                <p style="font-size: 0.95rem;">Every Saturday morning (or every other Saturday depending on your chosen plan cadence), your fresh greens are harvested and packed. <strong>Please leave a small cooler or insulated bag out on your porch on Friday night</strong>—we will pop your fresh clamshells straight inside to shield them from the Indiana weather!</p>
             </div>
                         <div class="step-item">
                 <p class="step-num">Step 3: Secure Upfront Payment</p>
@@ -618,56 +623,79 @@
             </div>
         </div>
 
-        <h2 id="pricing">Subscription Pricing Plans</h2>
+                <h2 id="pricing">Choose Your Neighborhood Spot</h2>
+        <p style="text-align: center; max-width: 650px; margin: -10px auto 25px auto; font-size: 0.95rem; color: #555555; font-style: italic;">
+            Select a harvest routine that fits your home. Active subscribers hold a permanent tray slot in our climate-controlled indoor facility, completely bypassing the 10-day custom cultivation wait time.
+        </p>
+
         <div class="pricing-grid">
             
             <!-- Tier 1 -->
-            <div class="card clickable-card" data-plan="single-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="card clickable-card" data-plan="simple-rotation" style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Individual</span>
-                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🟢 The Single Box Choice</h3>
-                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Two 2oz Clamshells of your chosen variety loop delivered right to your porch.</p>
+                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Fresh Single Variety</span>
+                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🟢 The Simple Weekly Rotation</h3>
+                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4; margin-bottom: 12px;">Two 2oz Clamshells of a singular, peak-expression microgreen variety. Hand-selected weekly by the grower based on absolute flavor and crunch. Dropped straight to your porch cooler.</p>
+                    <p style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">🌱 A simple, homey introduction to hyper-fresh indoor nutrition.</p>
                 </div>
-                <div style="margin-top: 20px; display: flex; align-items: baseline; gap: 4px;">
-                    <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$12</span>
-                    <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+                <div style="margin-top: 20px;">
+                    <div style="display: flex; align-items: baseline; gap: 4px;">
+                        <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$12</span>
+                        <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ per delivery</span>
+                    </div>
+                    <span style="font-size: 0.75rem; color: #666666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Available Weekly or Bi-Weekly</span>
                 </div>
             </div>
 
             <!-- Tier 2 -->
-            <div class="card clickable-card green-border-card" data-plan="double-box" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div class="card clickable-card green-border-card" data-plan="signature-blends" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
                 <!-- Popularity Ribbon -->
-                <span style="position: absolute; top: -12px; right: 15px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Most Popular</span>
+                <span style="position: absolute; top: -12px; right: 15px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Most Popular • Best Value</span>
                 
                 <div>
-                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--primary);">Best Value</span>
-                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🔥 The Double Box Deal</h3>
-                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Four 2oz Clamshells dropped to your porch. Perfect for couples and daily morning smoothie boosts.</p>
+                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--primary); font-weight: 800;">Artisanal Culinary Kit</span>
+                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">🔥 The Home Chef's Signature Blends</h3>
+                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4; margin-bottom: 12px;">Four 2oz Clamshells of our custom signature mixes. Includes (2) boxes of our mild Broccoli + Sunflower blend for everyday buttery crunch, and (2) boxes of our crisp Daikon Radish blend for a bold culinary kick.</p>
+                    <p style="font-size: 0.8rem; color: var(--dark); font-weight: 700;">🥦 Packs the nutritional density of up to 160oz of store-bought lettuce.</p>
                 </div>
                 <div style="margin-top: 20px;">
                     <div style="display: flex; align-items: baseline; gap: 4px;">
                         <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$20</span>
-                        <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+                        <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ per delivery</span>
                     </div>
-                    <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $4 Every Week</span>
+                    <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ YOU SAVE $4 EVERY DROP</span>
                 </div>
             </div>
 
             <!-- Tier 3 -->
-            <div class="card clickable-card" data-plan="triple-plan" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="card clickable-card" data-plan="private-allocation" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #c5a880; background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);">
                 <div>
-                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #666666;">Family Size</span>
-                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">👑 The Triple Box Plan</h3>
-                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4;">Six 2oz Clamshells dropped to your porch. Best choice for large households, daily juicers, and heavy salad eaters.</p>
+                    <span style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: #c5a880; font-weight: 800;">🔒 Elite Vault Exclusive</span>
+                    <h3 style="margin: 5px 0 10px 0; color: var(--text-main); font-family: -apple-system, sans-serif; font-size: 1.25rem;">👑 The Farmer’s Private Allocation</h3>
+                    <p style="font-size: 0.9rem; color: #555555; line-height: 1.4; margin-bottom: 12px;">Six 2oz Clamshells of pure harvest luxury. <strong>The sole gateway to secure our unblended single varieties (Pure Speckled Pea or Premium Sunflower).</strong> Lockboxed entirely from lower public tiers.</p>
+                    <p style="font-size: 0.8rem; color: #8a6d3b; font-weight: 600;">🎯 Fully customizable via your Tally Form Vault combinations dropdown.</p>
                 </div>
                 <div style="margin-top: 20px;">
                     <div style="display: flex; align-items: baseline; gap: 4px;">
-                        <span style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">$28</span>
-                        <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ Saturday drop</span>
+                        <span style="font-size: 1.8rem; font-weight: 800; color: #8a6d3b;">$30</span>
+                        <span style="font-size: 0.85rem; color: #666666; font-weight: 600;">/ per delivery</span>
                     </div>
-                    <span style="font-size: 0.78rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ You Save $8 Every Week</span>
+                    <span style="font-size: 0.78rem; color: #8a6d3b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">✨ MAX VITALITY VAULT SECURED</span>
                 </div>
             </div>
+        </div>
+
+        <!-- 🚪 THE LOW-FRICTION GATEWAY -->
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 20px; padding: 20px; background-color: #fcfcfc; border: 1px dashed var(--border-color); border-radius: 12px;">
+            <p style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">
+                💡 Just want to try a single harvest first?
+            </p>
+            <p style="font-size: 0.9rem; color: #555555; max-width: 600px; margin: 0 auto 15px auto; line-height: 1.5;">
+                Grab a single <strong>Saturday Sample Box</strong> for a flat \$12. Because we grow completely to order to maintain clean-crop standards, your single tray will be custom-sown in our next seeding cycle. <em>(Note: One-time sample orders are subject to a standard 10-day cultivation wait time).</em>
+            </p>
+            <button class="btn-sec open-checkout-trigger" style="margin-top: 5px; padding: 12px 24px; font-size: 0.9rem; border-color: var(--text-main); font-weight: 700;">
+                Order a Saturday Sample Box ($12)
+            </button>
         </div>
                 <h2 id="varieties">Our Superfood Varieties</h2>
         <div class="grid">
