@@ -553,6 +553,13 @@
             border-color: #c5a880 !important;
             box-shadow: 0 12px 30px rgba(197, 168, 128, 0.18) !important;
         }
+        /* 📱 Forces absolute layout isolation when the checkout form is active */
+        body.modal-open {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -564,10 +571,10 @@
             <span class="ticker-item" id="tickerTimer2">⏳ CALCULATING HARVEST DEADLINE...</span>
         </div>
     </div>
-
+    <div id="home"></div>
     <nav class="navbar">
         <!-- 1. Your Brand New Horizontal Logo -->
-        <a href="#" class="nav-brand-logo">
+        <a href="#home" class="nav-brand-logo">
             <img src="logo-horizontal.png" alt="Legacy Farms Home" style="height: 28px; width: auto; display: block; vertical-align: middle;">
         </a>
 
@@ -698,10 +705,10 @@
             </button>
         </div>
 
-                <h2 id="varieties">Our Superfood Varieties</h2>
+                       <h2 id="varieties">Our Superfood Varieties</h2>
         <div class="grid">
             <!-- Crop 1: Waltham 29 Broccoli -->
-            <div class="card">
+            <div class="card clickable-card green-border-card" data-plan="signature-blends">
                 <div class="crop-img-placeholder">🌱</div>
                 <span class="kid-badge">🧒 Kid Approved • Mild</span>
                 <p class="recipe-title">Premium Waltham 29 Broccoli</p>
@@ -709,7 +716,7 @@
             </div>
             
             <!-- Crop 2: Daikon Radish -->
-            <div class="card">
+            <div class="card clickable-card" data-plan="signature-blends">
                 <div class="crop-img-placeholder">🌿</div>
                 <span class="kid-badge" style="background-color: var(--primary);">💪 Crisp & Zesty</span>
                 <p class="recipe-title">Daikon Radish</p>
@@ -717,22 +724,21 @@
             </div>
 
             <!-- Crop 3: Speckled Pea -->
-            <div class="card">
+            <div class="card clickable-card" data-plan="private-allocation">
                 <div class="crop-img-placeholder">🍃</div>
                 <span class="kid-badge">🧒 Kid Approved • Sweet</span>
                 <p class="recipe-title">Speckled Pea Shoots</p>
-                <p style="font-size: 0.9rem; color: #555555;">Incredibly sweet and crunchy—tastes exactly like fresh sugar snap peas right out of the garden. High in plant protein and vitamins A and C.</p>
+                <p style="font-size: 0.9rem; color: #555555;">Incredibly sweet and crunchy—tastes exactly like fresh sugar snap peas right out of the garden. Locked exclusively in our Private Allocation vault.</p>
             </div>
 
             <!-- Crop 4: Sunflower -->
-            <div class="card">
+            <div class="card clickable-card" data-plan="private-allocation">
                 <div class="crop-img-placeholder">🌻</div>
                 <span class="kid-badge" style="background-color: #ef6c00;">✨ Rich & Nutty Crunch</span>
                 <p class="recipe-title">Premium Sunflower</p>
                 <p style="font-size: 0.9rem; color: #555555;">Thick, hearty, and remarkably nutty. These microgreens offer a satisfying crunch that makes them a perfect foundational base for any meal.</p>
             </div>
         </div>
-
                <h2 id="recipes">Quick Ways to Eat Your Greens</h2>
         <p style="text-align: center; max-width: 650px; margin: -10px auto 25px auto; font-size: 0.95rem; color: #555555; font-style: italic;">
             Simple, down-to-earth ways local families add our small-batch harvests to their everyday meals.
@@ -931,12 +937,14 @@
                 formIframe.src = targetUrl;
                 checkoutModal.classList.add('is-active');
                 document.body.style.overflow = 'hidden'; // Prevents background double-scrolling
+                document.body.classlist.add('modal-open');
             }
 
             function closeModal() {
                 checkoutModal.classList.remove('is-active');
                 document.body.style.overflow = '';
                 formIframe.src = "about:blank"; // Unloads iframe to save user device memory
+                document.body.classlist.remove('modal-open');
             }
             // ⏰ PRECISION CUTOFF ENGINE + LIVE ROUTE CAPACITY INJECTION
             function updateSeedingCountdown() {
