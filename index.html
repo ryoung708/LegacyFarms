@@ -954,13 +954,13 @@
             // PLACE YOUR FORM SERVICE BASE LINK HERE (e.g., https://tally.so)
             const formBaseUrl = "https://tally.so/r/44gX9B"; 
 
-                       function openModal(planName = "") {
+                                 function openModal(planName = "") {
                 let targetUrl = formBaseUrl;
                 
                 if(planName) {
                     let exactTallyPlan = "";
                     
-                    // 🗺️ Direct mapping to match your Tally form options exactly!
+                    // 🗺️ This maps your website clicks to the literal, exact text in your Tally fields
                     if (planName === "simple-rotation") {
                         exactTallyPlan = "🌾 The Simple Weekly Rotation (\$12 / per delivery)";
                     } else if (planName === "signature-blends") {
