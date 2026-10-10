@@ -954,31 +954,18 @@
             // PLACE YOUR FORM SERVICE BASE LINK HERE (e.g., https://tally.so)
             const formBaseUrl = "https://tally.so/r/44gX9B"; 
 
-                                 function openModal(planName = "") {
+                                            function openModal(planName = "") {
                 let targetUrl = formBaseUrl;
                 
+                // 🚀 Passes the data-plan keyword directly to your Tally logic fields!
                 if(planName) {
-                    let exactTallyPlan = "";
-                    
-                    // 🗺️ This maps your website clicks to the literal, exact text in your Tally fields
-                    if (planName === "simple-rotation") {
-                        exactTallyPlan = "🌾 The Simple Weekly Rotation (\$12 / per delivery)";
-                    } else if (planName === "signature-blends") {
-                        exactTallyPlan = "🧑‍🍳 The Home Chef's Signature Blends (\$20 / per delivery) — MOST POPULAR";
-                    } else if (planName === "private-allocation") {
-                        exactTallyPlan = "🔒 The Farmer’s Private Allocation (\$30 / per delivery) — ELITE VAULT";
-                    }
-                    
-                    if (exactTallyPlan) {
-                        targetUrl += `?plan=${encodeURIComponent(exactTallyPlan)}`;
-                    }
+                    targetUrl += `?plan=${encodeURIComponent(planName)}`;
                 }
                 
                 formIframe.src = targetUrl;
                 checkoutModal.classList.add('is-active');
                 document.body.classList.add('modal-open'); 
             }
-
             function closeModal() {
                 checkoutModal.classList.remove('is-active');
                 document.body.style.overflow = '';
