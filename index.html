@@ -925,7 +925,11 @@
 
     <script>
         window.addEventListener('DOMContentLoaded', () => {
+                        // 🛑 OPTIMIZED NAV CONTROLLER WITH FREEZE-PROTECTION
             const observer = new IntersectionObserver(entries => {
+                // If a modal is currently open, pause link tracking to prevent layout lockup
+                if (document.body.classList.contains('modal-open')) return;
+
                 entries.forEach(entry => {
                     const id = entry.target.getAttribute('id');
                     if (entry.intersectionRatio > 0) {
