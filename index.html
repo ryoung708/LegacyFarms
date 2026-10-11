@@ -1038,11 +1038,15 @@
                 });
             });
 
-            // Click capture loop for clickable subscription price grid elements
+                        // ⚡ CLICK CAPTURE LOOP FOR CLICKABLE SUBSCRIPTION PRICE GRID ELEMENTS
             document.querySelectorAll('.clickable-card').forEach(card => {
                 card.addEventListener('click', (e) => {
-                    const chosenPlan = card.getAttribute('data-plan');
-                    openModal(chosenPlan);
+                    // 🛡️ Bypasses child-element misfires by always targeting the master container card
+                    const targetCard = e.target.closest('.clickable-card');
+                    if (targetCard) {
+                        const chosenPlan = targetCard.getAttribute('data-plan');
+                        openModal(chosenPlan);
+                    }
                 });
             });
                        // 💬 Click capture loop for your Leave Farm Feedback button
