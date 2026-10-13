@@ -386,30 +386,16 @@
         }
         
         ul { 
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        li { 
-            margin-bottom: 6px; 
-            padding-left: 15px; 
-            position: relative; 
-            font-size: 0.95rem; 
-        }
-        li::before { 
-            content: "▪"; 
-            color: var(--primary); 
-            position: absolute; 
-            left: 0; 
-            font-size: 0.8rem; 
-        }
-        li::before { 
-            content: "▪"; 
-            color: var(--primary); 
-            position: absolute; 
-            left: 0; 
-            font-size: 0.8rem; 
-        }
+    list-style-type: none !important;
+    padding: 0;
+    margin: 0;
+}
+li { 
+    margin-bottom: 8px; 
+    padding-left: 0; 
+    position: relative; 
+    font-size: 0.95rem; 
+}
         /* 🎯 PREMIUM UPGRADE: Uses your square logo asset ONLY for Clean-Crop Standards */
         .crop-standards li {
             padding-left: 32px; /* Extra spacing so the text clears your logo */
