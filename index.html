@@ -331,6 +331,60 @@
             transition: background-color 0.2s ease;
         }
         
+             /* ⚡ Clickable Pricing Card Optimization Elements */
+        .card.clickable-card {
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .card.clickable-card:hover {
+            transform: translateY(-8px); /* Softly lifts closer to the eye */
+            box-shadow: 0 12px 30px rgba(35, 47, 62, 0.07); /* Deepens the shadow naturally */
+            border-color: var(--primary);
+        }
+        .card.clickable-card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(35, 47, 62, 0.04);
+        }
+        /* 🟢 Live Dashboard Status Pulse Animation */
+        @keyframes status-pulse {
+            0% { opacity: 0.4; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.4; transform: scale(0.95); }
+        }
+        .live-pulse-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background-color: #2e7d32; /* Matches your beautiful farm green */
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            animation: status-pulse 2s infinite ease-in-out;
+            box-shadow: 0 0 8px rgba(46, 125, 50, 0.6);
+        }
+        /* Soft Green Card Accent Variant */
+        .green-border-card {
+            border: 1px solid #e1ebe2 !important;
+            border-top: 4px solid var(--primary) !important;
+        }
+
+        /* Crop Image Container Softening */
+        .crop-img-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: #f4f9f1; 
+            border: 1px solid #e2ebd9;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 2.5rem; 
+            transition: background-color 0.2s ease;
+        }
+        
         ul { 
             list-style-type: none;
             padding: 0;
@@ -349,7 +403,13 @@
             left: 0; 
             font-size: 0.8rem; 
         }
-
+        li::before { 
+            content: "▪"; 
+            color: var(--primary); 
+            position: absolute; 
+            left: 0; 
+            font-size: 0.8rem; 
+        }
         /* 🎯 PREMIUM UPGRADE: Uses your square logo asset ONLY for Clean-Crop Standards */
         .crop-standards li {
             padding-left: 32px; /* Extra spacing so the text clears your logo */
