@@ -128,10 +128,15 @@
         cursor: pointer;
         transition: 0.2s ease;
       }
+      /* Make the order button selector more specific so it overrides the general .navbar a color
+         (the problem was .navbar a color having equal/higher specificity and taking precedence). */
+      .navbar a.nav-order-btn,
+      .navbar a.nav-order-btn:link,
+      .navbar a.nav-order-btn:visited,
       .nav-order-btn,
       .btn {
         background: var(--primary);
-        color: white;
+        color: #fff;
         border: 1px solid var(--dark);
         padding: 10px 18px;
         font-weight: 700;
@@ -145,7 +150,9 @@
         padding: 10px 18px;
         font-weight: 700;
       }
-      .nav-order-btn:hover, .btn:hover { background: var(--dark); }
+      .navbar a.nav-order-btn:hover,
+      .nav-order-btn:hover,
+      .btn:hover { background: var(--dark); color: #fff; }
       .btn-secondary:hover { background: var(--primary); color: white; }
 
       /* subtle edge fades to hint at horizontal scroll, placed behind links */
@@ -634,6 +641,9 @@
       }
 
       /* Keep sticky 'Order now' solid green with white text */
+      .navbar a.nav-order-btn,
+      .navbar a.nav-order-btn:link,
+      .navbar a.nav-order-btn:visited,
       .nav-order-btn {
         background: var(--primary);
         color: #fff;
@@ -643,6 +653,7 @@
         text-decoration: none;
         font-weight:700;
       }
+      .navbar a.nav-order-btn:hover,
       .nav-order-btn:hover { background: var(--dark); color: #fff; }
 
     </style>
@@ -998,41 +1009,4 @@
           overlay.setAttribute('aria-hidden', 'true');
           iframe.src = 'about:blank';
           document.documentElement.style.overflow = '';
-          document.body.style.overflow = '';
-        }
 
-        // Close handlers: close button, click outside modal, Escape key
-        closeBtn.addEventListener('click', closeModal);
-        overlay.addEventListener('click', function (ev) {
-          if (ev.target === overlay) closeModal();
-        });
-        window.addEventListener('keydown', function (ev) {
-          if (ev.key === 'Escape' && overlay.classList.contains('open')) closeModal();
-        });
-
-        // Intercept tally anchors and open modal.
-        const sel = 'a[href^="https://tally.so/"], a[href*="tally.so"]';
-        function attachHandlers(root) {
-          document.querySelectorAll(sel).forEach(a => {
-            if (a.dataset._tallyModalAttached) return;
-            a.dataset._tallyModalAttached = '1';
-
-            a.addEventListener('click', function (ev) {
-              // allow modifier-clicks to open in new tab/window
-              if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
-
-              ev.preventDefault();
-              const href = this.href;
-              openModal(href);
-            }, { passive: false });
-          });
-        }
-
-        // Attach now and observe for DOM changes (in case content is injected later)
-        attachHandlers(document);
-        const mo = new MutationObserver(() => attachHandlers(document));
-        mo.observe(document.documentElement, { childList: true, subtree: true });
-      })();
-    </script>
-  </body>
-</html>
