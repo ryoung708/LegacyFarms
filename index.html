@@ -90,6 +90,9 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        position: relative;
+        scroll-snap-type: x mandatory;
+        -webkit-scroll-snap-type: x mandatory;
       }
       .navbar-links::-webkit-scrollbar {
         display: none;
@@ -102,12 +105,20 @@
         color: var(--primary);
         font-weight: 700;
         flex: 0 0 auto;
+        scroll-snap-align: start;
+        padding: 6px 4px;
       }
       .navbar a[aria-current="true"] {
         color: var(--dark);
         border-bottom: 2px solid var(--primary);
         padding-bottom: 3px;
       }
+      .navbar a:focus {
+        outline: 3px solid var(--primary);
+        outline-offset: 2px;
+      }
+      .navbar a:focus:not(:focus-visible) { outline: none; }
+
       .nav-order-btn,
       .btn,
       .btn-secondary {
@@ -134,6 +145,33 @@
       }
       .nav-order-btn:hover, .btn:hover { background: var(--dark); }
       .btn-secondary:hover { background: var(--primary); color: white; }
+
+      /* subtle edge fades to hint at horizontal scroll */
+      .navbar-links::after,
+      .navbar-links::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 34px;
+        pointer-events: none;
+      }
+      .navbar-links::after {
+        right: 0;
+        background: linear-gradient(to left, rgba(255,255,255,0.95), rgba(255,255,255,0));
+      }
+      .navbar-links::before {
+        left: 0;
+        background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0));
+      }
+
+      .nav-order-btn,
+      .btn,
+      .btn-secondary {
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
 
       .container {
         max-width: 860px;
