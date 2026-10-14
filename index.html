@@ -107,6 +107,8 @@
         flex: 0 0 auto;
         scroll-snap-align: start;
         padding: 6px 4px;
+        position: relative; /* so links sit above fade pseudo-elements */
+        z-index: 1;
       }
       .navbar a[aria-current="true"] {
         color: var(--dark);
@@ -146,15 +148,16 @@
       .nav-order-btn:hover, .btn:hover { background: var(--dark); }
       .btn-secondary:hover { background: var(--primary); color: white; }
 
-      /* subtle edge fades to hint at horizontal scroll */
+      /* subtle edge fades to hint at horizontal scroll, placed behind links */
       .navbar-links::after,
       .navbar-links::before {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
-        width: 20px;
+        width: 14px;
         pointer-events: none;
+        z-index: 0; /* behind nav links */
       }
       .navbar-links::after {
         right: 0;
@@ -806,6 +809,7 @@
       // Scroll-spy + auto-scroll navbar to keep active link centered
       (function () {
         const navLinks = Array.from(document.querySelectorAll('.navbar-links a[href^="#"]'));
+        const scroller = document.querySelector('.navbar-links');
         const sections = navLinks
           .map(a => document.getElementById(a.getAttribute('href').slice(1)))
           .filter(Boolean);
@@ -823,12 +827,14 @@
                 matching.setAttribute('aria-current', 'true');
 
                 // auto-scroll the nav scroller so the active item is centered
-                // prefer smooth behavior only on user-visible devices
                 try {
                   matching.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
                 } catch (e) {
                   matching.scrollIntoView({ inline: 'center', block: 'nearest' });
                 }
+
+                // update fade visibility classes after a short delay
+                setTimeout(updateFadeClasses, 220);
               }
             }
           });
@@ -840,13 +846,31 @@
         navLinks.forEach(a => a.addEventListener('click', (e) => {
           navLinks.forEach(x => x.removeAttribute('aria-current'));
           a.setAttribute('aria-current', 'true');
-          // allow default anchor behavior to scroll to section
-          // but also ensure the clicked link is visible
           setTimeout(() => {
             try { a.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' }); }
             catch (e) { a.scrollIntoView({ inline: 'center', block: 'nearest' }); }
+            updateFadeClasses();
           }, 50);
         }));
+
+        // show/hide fade hints based on current scroll position and overflow
+        function updateFadeClasses() {
+          if (!scroller) return;
+          const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+          scroller.classList.toggle('has-left', scroller.scrollLeft > 8);
+          scroller.classList.toggle('has-right', scroller.scrollLeft < (maxScrollLeft - 8));
+        }
+
+        // listen to scroll to update fades
+        scroller.addEventListener('scroll', () => {
+          updateFadeClasses();
+        }, { passive: true });
+
+        // run once on load
+        updateFadeClasses();
+
+        // ensure fades reflect resizing
+        window.addEventListener('resize', () => { updateFadeClasses(); });
       })();
     </script>
   </body>
