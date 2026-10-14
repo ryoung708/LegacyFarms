@@ -777,7 +777,8 @@
       <h2 id="waitlist" class="accent">Outside our delivery zone?</h2>
       <div class="step-list waitlist-zone">
         <div class="step-item">
-          <div>We currently deliver to the Woodhaven neighborhood. Join the waitlist and help bring a route to your area once 10 households sign up.</div>
+          <div>We currently deliver to the Woodhaven neighborhood. Join the waitlist and help bring a route to your area once 10 households sign up.
+          </div>
           <div class="progress-box">
             <div style="font-weight:800; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Neighborhood expansion leaderboard</div>
 
@@ -875,6 +876,28 @@
 
         // ensure fades reflect resizing
         window.addEventListener('resize', () => { updateFadeClasses(); });
+      })();
+    </script>
+
+    <script>
+      // Fallback: ensure Tally CTAs open reliably even if something intercepts clicks or window.open would be blocked.
+      (function () {
+        const sel = 'a[href^="https://tally.so/"], a[href*="tally.so"]';
+        document.querySelectorAll(sel).forEach(a => {
+          if (a.dataset._tallyAttached) return;
+          a.dataset._tallyAttached = '1';
+
+          a.addEventListener('click', function (ev) {
+            // allow modifier-clicks (open in new tab/window) to behave normally
+            if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+
+            ev.preventDefault();
+            const url = this.href;
+            // try window.open first; if blocked, navigate same tab
+            const w = window.open(url, '_blank', 'noopener');
+            if (!w) window.location.href = url;
+          }, { passive: false });
+        });
       })();
     </script>
   </body>
