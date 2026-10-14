@@ -292,6 +292,10 @@
         border-radius: 14px;
         padding: 18px;
         box-shadow: 0 4px 16px rgba(20,20,20,0.03);
+        display: block; /* ensure anchor/card behaves like a block */
+        cursor: pointer; /* indicate clickable */
+        text-decoration: none; /* prevent underline for anchor-wrapped cards */
+        color: inherit;
       }
       .card.highlight {
         border-top: 4px solid var(--primary);
@@ -642,7 +646,7 @@
       </p>
 
       <div class="pricing-grid">
-        <div class="card">
+        <a class="card" href="https://tally.so/r/44gX9B" target="_blank" rel="noopener" role="button">
           <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#666; font-weight:700;">Fresh single variety</span>
           <h3>The Simple Weekly Rotation</h3>
           <p>A rotating crop chosen for peak flavor and freshness. Clean, simple, and easy to stick with.</p>
@@ -653,9 +657,9 @@
           </ul>
           <div class="price-line"><strong>$12</strong><span>/ per delivery</span></div>
           <div class="mini-tag">Weekly or bi-weekly</div>
-        </div>
+        </a>
 
-        <div class="card highlight">
+        <a class="card highlight" href="https://tally.so/r/44gX9B" target="_blank" rel="noopener" role="button">
           <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:var(--primary); font-weight:800;">Home chef favorite</span>
           <h3>The Home Chef's Signature Blends</h3>
           <p>A curated mix designed for everyday meals, smoothies, sandwiches, and salads.</p>
@@ -666,9 +670,9 @@
           </ul>
           <div class="price-line"><strong>$20</strong><span>/ per delivery</span></div>
           <div class="mini-tag">Save $4 per drop</div>
-        </div>
+        </a>
 
-        <div class="card premium-card">
+        <a class="card premium-card" href="https://tally.so/r/44gX9B" target="_blank" rel="noopener" role="button">
           <div class="lock-badge" aria-hidden="true">🔒</div>
           <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#8a6d3b; font-weight:800;">Private allocation</span>
           <h3>The Farmer's Private Allocation</h3>
@@ -680,7 +684,7 @@
           </ul>
           <div class="price-line"><strong style="color:#8a6d3b;">$30</strong><span>/ per delivery</span></div>
           <div class="mini-tag" style="color:#8a6d3b;">Premium variety access</div>
-        </div>
+        </a>
       </div>
 
       <div style="text-align:center; margin:28px 0 8px; padding:20px 16px; background:#fcfcfc; border:1px dashed var(--border); border-radius:10px;">
