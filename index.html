@@ -355,7 +355,6 @@
       padding-left: 18px;
     }
 
-    /* Crop standards: use your square logo as a glassy white-gold bullet */
     .crop-standards { list-style: none; margin: 0; padding: 0; }
     .crop-standards li {
       position: relative;
@@ -372,7 +371,7 @@
       width: 28px;
       height: 28px;
       border-radius: 6px;
-      background-color: rgba(255, 247, 230, 0.88); /* warm white-gold base */
+      background-color: rgba(255, 247, 230, 0.88);
       background-image: url("logo-square.png");
       background-repeat: no-repeat;
       background-position: center;
@@ -456,6 +455,55 @@
       margin-bottom: 8px;
     }
 
+    .order-modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      background: rgba(17,17,17,0.45);
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .order-modal-overlay.is-active {
+      display: flex;
+    }
+    .order-modal-window {
+      width: min(920px, 96%);
+      max-height: 85vh;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: 0 20px 50px rgba(17,17,17,0.35);
+    }
+    .modal-iframe {
+      width: 100%;
+      height: 72vh;
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+    .modal-toolbar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 8px 12px;
+      background: #faf7f3;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .modal-close-trigger {
+      background: #f4f4f4;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
     @media (max-width: 820px) {
       .pricing-grid, .grid {
         grid-template-columns: 1fr;
@@ -464,6 +512,7 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+      .modal-iframe { height: 60vh; }
     }
   </style>
 </head>
@@ -531,10 +580,10 @@
     </div>
 
     <h2 id="pricing">Secure your Saturday share</h2>
-    <p style="text-align:center; max-width:650px; margin:-10px auto 18px; color:#555; font-style:italic;">Fresh, local microgreens for busy families who want simple, healthy food without the hass[...]</p>
+    <p style="text-align:center; max-width:650px; margin:-10px auto 18px; color:#555; font-style:italic;">Fresh, local microgreens for busy families who want simple, healthy food without the hassle.</p>
 
     <div class="pricing-grid">
-      <div class="card">
+      <div class="card" data-plan="simple-rotation">
         <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#666; font-weight:700;">Fresh single variety</span>
         <h3>The Simple Weekly Rotation</h3>
         <p>A rotating crop chosen for peak flavor and freshness. Clean, simple, and easy to stick with.</p>
@@ -547,7 +596,7 @@
         <div class="mini-tag">Weekly or bi-weekly</div>
       </div>
 
-      <div class="card highlight">
+      <div class="card highlight" data-plan="signature-blends">
         <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:var(--primary); font-weight:800;">Home chef favorite</span>
         <h3>The Home Chef's Signature Blends</h3>
         <p>A curated mix designed for everyday meals, smoothies, sandwiches, and salads.</p>
@@ -560,7 +609,7 @@
         <div class="mini-tag" style="color:var(--primary);">Save $4 per drop</div>
       </div>
 
-      <div class="card" style="border:1px solid #c5a880; background:linear-gradient(180deg, #fffdf9 0%, #f7efe4 100%);">
+      <div class="card" data-plan="private-allocation" style="border:1px solid #c5a880; background:linear-gradient(180deg, #fffdf9 0%, #f7efe4 100%);">
         <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#8a6d3b; font-weight:800;">Private allocation</span>
         <h3>The Farmer's Private Allocation</h3>
         <p>Our highest-volume option for households that want flexibility, variety, and access to premium single varieties.</p>
@@ -577,7 +626,7 @@
     <div style="text-align:center; margin:28px 0 8px; padding:20px 16px; background:#fcfcfc; border:1px dashed var(--border); border-radius:10px;">
       <p style="margin:0 0 8px; font-size:1rem; font-weight:700;">Just want to try a single harvest?</p>
       <p style="margin:0 auto 12px; max-width:620px; color:#555;">Order a Saturday Sample Box for $12 — we grow to order, so each sample is planted for the next delivery cycle.</p>
-      <button class="btn-secondary" type="button">Order a Saturday Sample Box ($12)</button>
+      <button class="btn-secondary sample-order-btn" type="button">Order a Saturday Sample Box ($12)</button>
     </div>
 
     <h2 id="varieties">Our varieties</h2>
@@ -686,7 +735,7 @@
           <div style="margin-top:10px; color:#555; font-style:italic; font-size:0.8rem;">Don't see your neighborhood? Join the waitlist below.</div>
         </div>
 
-        <button class="btn-secondary" type="button" style="margin-top:12px; width:100%;">Join the neighborhood waitlist</button>
+        <button class="btn-secondary waitlist-btn" type="button" style="margin-top:12px; width:100%;">Join the neighborhood waitlist</button>
       </div>
     </div>
 
@@ -696,5 +745,100 @@
       <div style="font-size:0.8rem; color:#444; margin-top:6px;">Indiana Home-Based Vendor Compliant • Direct-To-Consumer Delivery Only</div>
     </footer>
   </main>
+
+  <div class="order-modal-overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="order-modal-window" role="document">
+      <div class="modal-toolbar">
+        <button class="modal-close-trigger" id="closeModalBtn" aria-label="Close form">×</button>
+      </div>
+      <iframe id="formIframe" class="modal-iframe" title="Legacy Farms form" src="about:blank" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const CHECKOUT_URL = 'https://tally.so/r/44gX9B';
+      const FEEDBACK_URL = 'https://tally.so/r/5By4do';
+      const WAITLIST_URL = 'https://tally.so/r/5BybPd';
+
+      function openModal(url) {
+        const modal = document.getElementById('checkoutModal');
+        const iframe = document.getElementById('formIframe');
+        if (!modal || !iframe) return;
+        if (iframe.src !== url) {
+          iframe.src = url;
+        }
+        modal.classList.add('is-active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () {
+          var closeBtn = document.getElementById('closeModalBtn');
+          if (closeBtn) closeBtn.focus();
+        }, 50);
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('checkoutModal');
+        if (!modal) return;
+        modal.classList.remove('is-active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function bindTextButton(text, url) {
+        var btn = Array.from(document.querySelectorAll('button')).find(function (button) {
+          return button.textContent && button.textContent.trim().toLowerCase() === text.toLowerCase();
+        });
+        if (btn) {
+          btn.addEventListener('click', function () {
+            openModal(url);
+          });
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        bindTextButton('Order now', CHECKOUT_URL);
+        bindTextButton('Secure your Saturday share', CHECKOUT_URL);
+        bindTextButton('Leave farm feedback', FEEDBACK_URL);
+        bindTextButton('Order a Saturday Sample Box ($12)', CHECKOUT_URL);
+        bindTextButton('Join the neighborhood waitlist', WAITLIST_URL);
+
+        var pricingCards = document.querySelectorAll('.pricing-grid .card');
+        pricingCards.forEach(function (card) {
+          card.setAttribute('tabindex', '0');
+          card.setAttribute('role', 'button');
+          card.addEventListener('click', function () {
+            openModal(CHECKOUT_URL);
+          });
+          card.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              openModal(CHECKOUT_URL);
+            }
+          });
+        });
+
+        var closeBtn = document.getElementById('closeModalBtn');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', closeModal);
+        }
+
+        var modal = document.getElementById('checkoutModal');
+        if (modal) {
+          modal.addEventListener('click', function (event) {
+            if (event.target === modal) {
+              closeModal();
+            }
+          });
+        }
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            closeModal();
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
