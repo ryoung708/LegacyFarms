@@ -535,7 +535,7 @@
         font-size: 0.95rem;
         color: var(--text);
       }
-      .crop-standards li::before {
+            .crop-standards li::before {
         content: "";
         position: absolute;
         left: 0;
@@ -543,14 +543,16 @@
         width: 36px;
         height: 36px;
         border-radius: 8px;
-        background-color: rgba(255,255,252,0.96);
+        background-color: rgba(255, 255, 252, 0.96);
         background-image: url("logo-square.png");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 60%;
-        box-shadow: 0 8px 22px rgba(17,17,17,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
-        border: 1px solid rgba(197,168,128,0.18);
-        backdrop-filter: blur(3px);
+        /* ✨ RESTORES THE PREMIUM GLASSMORPHISM ACCENTS: */
+        border: 1px solid rgba(46, 125, 50, 0.25) !important;
+        box-shadow: 0 6px 16px rgba(17, 17, 17, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
       }
 
       /* Center the waitlist block and constrain its width so the "Join the neighborhood waitlist" CTA sits centered */
@@ -691,6 +693,23 @@
       }
       .navbar a.nav-order-btn:hover,
       .nav-order-btn:hover { background: var(--dark); color: #fff; }
+            /* 🟢 Live Dashboard Status Pulse Animation */
+      @keyframes status-pulse {
+          0% { opacity: 0.4; transform: scale(0.95); }
+          50% { opacity: 1; transform: scale(1.05); }
+          100% { opacity: 0.4; transform: scale(0.95); }
+        }
+      .live-pulse-dot {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          background-color: #2e7d32; /* Matches your beautiful farm green */
+          border-radius: 50%;
+          margin-right: 6px;
+          vertical-align: middle;
+          animation: status-pulse 2s infinite ease-in-out;
+          box-shadow: 0 0 8px rgba(46, 125, 50, 0.6);
+      }
 
     </style>
   </head>
@@ -902,21 +921,21 @@
           <div class="progress-box">
             <div style="font-weight:800; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Neighborhood expansion leaderboard</div>
 
-            <div class="route">
-              <div class="route-meta"><span>📍 Austin Lakes / Geist Shores</span><strong>3/10</strong></div>
-              <div class="bar"><div class="bar-fill" style="width:30%;">30%</div></div>
-            </div>
+           <!-- UPDATE YOUR LEADERBOARD ROWS TO LOOK EXACTLY LIKE THIS: -->
+<div class="route">
+  <div class="route-meta"><span><span class="live-pulse-dot"></span>📍 Austin Lakes / Geist Shores</span><strong>3/10</strong></div>
+  <div class="bar"><div class="bar-fill" style="width:30%;">30%</div></div>
+</div>
 
-            <div class="route">
-              <div class="route-meta"><span>📍 Emerald Springs</span><strong>2/10</strong></div>
-              <div class="bar"><div class="bar-fill" style="width:20%; background:#66bb6a;">20%</div></div>
-            </div>
+<div class="route">
+  <div class="route-meta"><span><span class="live-pulse-dot"></span>📍 Emerald Springs</span><strong>2/10</strong></div>
+  <div class="bar"><div class="bar-fill" style="width:20%; background:#66bb6a;">20%</div></div>
+</div>
 
-            <div class="route">
-              <div class="route-meta"><span>📍 Windward Pass / Geist Overlook</span><strong>1/10</strong></div>
-              <div class="bar"><div class="bar-fill" style="width:10%; background:#9ccc65;">10%</div></div>
-            </div>
-
+<div class="route">
+  <div class="route-meta"><span><span class="live-pulse-dot"></span>📍 Windward Pass / Geist Overlook</span><strong>1/10</strong></div>
+  <div class="bar"><div class="bar-fill" style="width:10%; background:#9ccc65;">10%</div></div>
+</div>
             <div style="margin-top:10px; color:#555; font-style:italic; font-size:0.8rem;">Don't see your neighborhood? Join the waitlist below.</div>
           </div>
 
