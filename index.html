@@ -527,29 +527,29 @@
         box-shadow: 0 10px 24px rgba(197,168,128,0.12);
       }
 
-      .crop-standards { list-style: none; margin: 0; padding: 0; }
-      .crop-standards li {
+            .crop-standards li {
         position: relative;
-        padding-left: 48px;
-        margin-bottom: 12px;
+        padding-left: 44px !important; /* ✨ Gives the text the perfect breathing space next to your new centered badge sizes */
+        margin-bottom: 14px;
         font-size: 0.95rem;
         color: var(--text);
       }
-                  .crop-standards li::before {
+         .crop-standards li::before {
         content: "";
         position: absolute;
         left: 0;
-        top: 2px;
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
+        /* 🎯 SHIFTED DOWN FROM 2px TO 6px TO CENTER PERFECTLY WITH THE TEXT: */
+        top: 6px; 
+        width: 32px; /* 🧮 Lightly scaled down to 32px for an elegant, less-crowded footprint */
+        height: 32px;
+        border-radius: 6px;
         background-color: #ffffff !important;
         background-image: url("logo-bullet.png");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain !important; 
-        border: 1px solid rgba(46, 125, 50, 0.25) !important;
-        box-shadow: 0 4px 12px rgba(17, 17, 17, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+        background-size: 70% !important; /* Adjusts your "A" icon padding inside the white frame */
+        border: 1px solid rgba(46, 125, 50, 0.22) !important;
+        box-shadow: 0 4px 10px rgba(17, 17, 17, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
       }
       /* Center the waitlist block and constrain its width so the "Join the neighborhood waitlist" CTA sits centered */
       .waitlist-zone {
