@@ -369,6 +369,12 @@
         border-radius: 12px;
         padding: 16px;
       }
+            /* 🎨 Forces the final crown jewel card to anchor the grid beautifully on desktop views */
+      @media (min-width: 821px) {
+        .full-span-card {
+          grid-column: span 2;
+        }
+      }
       .crop-art {
         display: flex;
         align-items: center;
@@ -880,31 +886,62 @@
         <a class="btn-secondary" href="https://tally.so/r/44gX9B" target="_blank" rel="noopener" role="button">Order a Saturday Sample Box ($12)</a>
       </div>
 
-      <h2 id="varieties">Our varieties</h2>
+           <h2 id="varieties">Our varieties</h2>
       <div class="grid">
+        <!-- Crop 1: Broccoli -->
         <div class="variety-card">
           <div class="crop-art">🌱</div>
           <span class="kid-badge">Kid approved • mild</span>
           <h3 style="margin:0 0 8px;">Waltham 29 Broccoli</h3>
-          <p>Mild, crisp, rich in sulforaphane — kid friendly.</p>
+          <p>Mild, crisp, exceptionally clean taste. Rich in active Sulforaphane to maximize cell health and defense lines.</p>
         </div>
+
+        <!-- Crop 2: Radish -->
         <div class="variety-card">
           <div class="crop-art">🌿</div>
           <span class="kid-badge" style="background:var(--primary);">Crisp &amp; zesty</span>
           <h3 style="margin:0 0 8px;">Daikon Radish</h3>
-          <p>Bright, peppery, great for sandwiches and salads.</p>
+          <p>Bright, peppery, pleasantly sharp bite. Packed with digestive enzymes and vital raw antioxidants.</p>
         </div>
+
+        <!-- Crop 3: Arugula -->
         <div class="variety-card">
           <div class="crop-art">🍃</div>
+          <span class="kid-badge" style="background:var(--primary);">Peppery &amp; Nutty</span>
+          <h3 style="margin:0 0 8px;">Wild Arugula</h3>
+          <p>Deep, complex, herbaceous flavor with a signature peppery punch. Rich in Vitamin K and calcium.</p>
+        </div>
+
+        <!-- Crop 4: Garden Cress -->
+        <div class="variety-card">
+          <div class="crop-art">⚡</div>
+          <span class="kid-badge" style="background:var(--primary);">Tangy Sizzle</span>
+          <h3 style="margin:0 0 8px;">Garden Cress</h3>
+          <p>Brings an immediate, zesty, mustard-like snap to the palate. High velocity crop packed with iron minerals.</p>
+        </div>
+
+        <!-- Crop 5: Spicy Mustard -->
+        <div class="variety-card">
+          <div class="crop-art">🔥</div>
+          <span class="kid-badge" style="background:var(--accent);">Wasabi Heat</span>
+          <h3 style="margin:0 0 8px;">Spicy Field Mustard</h3>
+          <p>A nasal, building heat that replicates true high-end sushi horseradish. Incredible steak or salmon topper.</p>
+        </div>
+
+        <!-- Crop 6: Speckled Pea -->
+        <div class="variety-card">
+          <div class="crop-art">🥗</div>
           <span class="kid-badge">Kid approved • sweet</span>
           <h3 style="margin:0 0 8px;">Speckled Pea Shoots</h3>
-          <p>Sweet, crunchy, perfect for salads and kids.</p>
+          <p>Incredibly sweet and crunchy — tastes exactly like fresh sugar snap peas. Locked inside our Private Vault.</p>
         </div>
-        <div class="variety-card">
+
+        <!-- Crop 7: Sunflower (Anchor Jewel) -->
+        <div class="variety-card full-span-card">
           <div class="crop-art">🌻</div>
-          <span class="kid-badge" style="background:#ef6c00;">Rich &amp; nutty</span>
+          <span class="kid-badge" style="background:#ef6c00;">Rich &amp; nutty crunch</span>
           <h3 style="margin:0 0 8px;">Premium Sunflower</h3>
-          <p>Hearty, nutty crunch that builds meals from the base up.</p>
+          <p>Thick, hearty, remarkably nutty crunch. These slow-growing, heavy seedlings offer a satisfying, robust bite that makes them the perfect foundational meal base for salads and wraps.</p>
         </div>
       </div>
 
