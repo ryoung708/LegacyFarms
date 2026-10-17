@@ -712,6 +712,22 @@
           50% { background-color: #689f38; box-shadow: inset 0 0 15px rgba(255,255,255,0.2), 0 0 8px rgba(85, 139, 47, 0.3); }
           100% { background-color: #558b2f; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
       }
+            /* 📊 Tier 4 Pulse: Soft Sage Green (Cambridge Growth Tracking) */
+      @keyframes pulse-cambridge {
+          0% { background-color: #689f38; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
+          50% { background-color: #7cb342; box-shadow: inset 0 0 15px rgba(255,255,255,0.2), 0 0 8px rgba(104, 159, 56, 0.3); }
+          100% { background-color: #689f38; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
+      }
+      /* 📊 Tier 5 Pulse: Light Mint Green (Feather Cove Seeding Progress) */
+      @keyframes pulse-feather {
+          0% { background-color: #7cb342; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
+          50% { background-color: #9ccc65; box-shadow: inset 0 0 15px rgba(255,255,255,0.2), 0 0 6px rgba(124, 179, 66, 0.2); }
+          100% { background-color: #7cb342; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
+      }
+
+      /* Connect the animations to the class handles */
+      .fill-tier-4 { animation: pulse-cambridge 2s infinite ease-in-out; }
+      .fill-tier-5 { animation: pulse-feather 2s infinite ease-in-out; }
 
       .bar-fill {
           height: 100%;
@@ -953,27 +969,34 @@
       <div class="step-list waitlist-zone">
         <div class="step-item">
           <div>We currently deliver to the Woodhaven neighborhood. Join the waitlist and help bring a route to your area once 10 households sign up.</div>
-          <div class="progress-box">
+                    <div class="progress-box">
             <div style="font-weight:800; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Neighborhood expansion leaderboard</div>
 
-           <!-- UPDATE YOUR LEADERBOARD ROWS TO LOOK EXACTLY LIKE THIS: -->
-<div class="route">
-  <div class="route-meta"><span>📍 Austin Lakes / Geist Shores</span><strong>3/10</strong></div>
-  <!-- 💡 Added fill-tier-1 class -->
-  <div class="bar"><div class="bar-fill fill-tier-1" style="width:30%;">30%</div></div>
-</div>
+            <div class="route">
+              <div class="route-meta"><span>📍 Austin Lakes / Geist Shores</span><strong>3/10</strong></div>
+              <div class="bar"><div class="bar-fill fill-tier-1" style="width:30%;">30%</div></div>
+            </div>
 
-<div class="route">
-  <div class="route-meta"><span>📍 Emerald Springs</span><strong>2/10</strong></div>
-  <!-- 💡 Added fill-tier-2 class -->
-  <div class="bar"><div class="bar-fill fill-tier-2" style="width:20%;">20%</div></div>
-</div>
+            <div class="route">
+              <div class="route-meta"><span>📍 Emerald Springs</span><strong>2/10</strong></div>
+              <div class="bar"><div class="bar-fill fill-tier-2" style="width:20%;">20%</div></div>
+            </div>
 
-<div class="route">
-  <div class="route-meta"><span>📍 Windward Pass / Geist Overlook</span><strong>1/10</strong></div>
-  <!-- 💡 Added fill-tier-3 class -->
-  <div class="bar"><div class="bar-fill fill-tier-3" style="width:10%;">10%</div></div>
-</div>
+            <div class="route">
+              <div class="route-meta"><span>📍 Cambridge</span><strong>1/10</strong></div>
+              <div class="bar"><div class="bar-fill fill-tier-3" style="width:10%;">10%</div></div>
+            </div>
+
+            <div class="route">
+              <div class="route-meta"><span>📍 Windward Pass / Geist Overlook</span><strong>1/10</strong></div>
+              <div class="bar"><div class="bar-fill fill-tier-4" style="width:10%;">10%</div></div>
+            </div>
+
+            <div class="route">
+              <div class="route-meta"><span>📍 Feather Cove</span><strong>0/10</strong></div>
+              <div class="bar"><div class="bar-fill fill-tier-5" style="width:5%;">5%</div></div>
+            </div>
+
             <div style="margin-top:10px; color:#555; font-style:italic; font-size:0.8rem;">Don't see your neighborhood? Join the waitlist below.</div>
           </div>
 
