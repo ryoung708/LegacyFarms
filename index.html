@@ -287,7 +287,7 @@
         margin-bottom: 6px;
       }
 
-    /* ===== LEGACY FARMS — UNIFIED PREMIUM CSS ===== */
+  /* ===== LEGACY FARMS — COMPLETE UNIFIED CSS ===== */
 
 /* --- 1. Pricing Boxes Layout & Premium Cards --- */
 .lf-boxes {
@@ -311,7 +311,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .lf-box-card:hover {
@@ -319,10 +319,9 @@
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
 }
 
-/* Featured card background styling with a gentle gradient hint */
 .lf-box-card--featured {
   border: 2px solid var(--primary);
-  background: linear-gradient(160deg, #ffffff 0%, #fafdfee 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #fafdfa 100%);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
 }
 
@@ -432,7 +431,6 @@
   line-height: 1.55;
 }
 
-/* Premium card buttons completely linked to your color variables */
 .lf-box-button {
   display: block;
   width: 100%;
@@ -503,7 +501,6 @@
   line-height: 1.5;
 }
 
-/* Handles layout spans for custom highlighted grids */
 @media (min-width: 821px) {
   .full-span-card {
     grid-column: span 2;
@@ -537,7 +534,83 @@
 }
 
 
-/* --- 3. Responsive Adaptations & Accessibility Rules --- */
+/* --- 3. Quick Way to Eat Greens (Original .card styles restored) --- */
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  display: block; 
+  cursor: pointer; 
+  text-decoration: none; 
+  color: inherit;
+  transition: transform 180ms ease, box-shadow 180ms ease; 
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+.card.highlight {
+  border-top: 4px solid var(--primary);
+}
+
+.card p, .card li {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.card h3 {
+  margin: 8px 0 10px;
+  font-size: 1.12rem;
+  color: var(--text);
+}
+
+ul.clean {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+li.with-icon {
+  position: relative;
+  padding-left: 8px;
+}
+
+.price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 18px;
+}
+
+.price-line strong {
+  font-size: 1.7rem;
+  color: var(--dark);
+}
+
+.price-line span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.mini-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+
+/* --- 4. Shared Responsive Adaptations & Accessibility Rules --- */
 @media (max-width: 640px) {
   .lf-boxes, .grid {
     grid-template-columns: 1fr;
@@ -558,7 +631,6 @@
     order: -1;
   }
   
-  /* Forces grid components into single-column layout on tiny displays */
   .full-span-card {
     grid-column: auto !important;
   }
@@ -566,11 +638,13 @@
 
 @media (prefers-reduced-motion: reduce) {
   .lf-box-card,
-  .lf-box-button {
+  .lf-box-button,
+  .card {
     transition: none;
   }
 
-  .lf-box-card:hover {
+  .lf-box-card:hover,
+  .card:hover {
     transform: none;
   }
 }
