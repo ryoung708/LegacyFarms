@@ -488,17 +488,21 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
+/* Decreased from 1.15rem to a crisp 1rem */
 .variety-card h3 {
-  margin: 8px 0 6px;
-  font-size: 1.15rem;
+  margin: 6px 0 4px;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--text);
+  line-height: 1.2;
 }
 
+/* Decreased from 0.92rem to a cleaner 0.85rem */
 .variety-card p {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 @media (min-width: 821px) {
@@ -525,14 +529,13 @@
   background: var(--accent);
   color: #ffffff;
   border-radius: 4px;
-  font-size: 0.7rem;
+  font-size: 0.65rem; /* Made badge text slightly smaller to match */
   font-weight: 700;
   text-transform: uppercase;
-  padding: 4px 8px;
+  padding: 3px 6px;
   margin-bottom: 4px;
   letter-spacing: 0.5px;
 }
-
 
 /* --- 3. Quick Way to Eat Greens (Original .card styles restored) --- */
 .card {
