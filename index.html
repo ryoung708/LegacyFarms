@@ -287,117 +287,219 @@
         margin-bottom: 6px;
       }
 
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-        margin-top: 10px;
-      }
-      .card {
-        border: 1px solid rgba(0,0,0,0.08);
-        background: #fff;
-        border-radius: 14px;
-        padding: 18px;
-        box-shadow: 0 4px 16px rgba(20,20,20,0.03);
-        display: block; /* ensure anchor/card behaves like a block */
-        cursor: pointer; /* indicate clickable */
-        text-decoration: none; /* prevent underline for anchor-wrapped cards */
-        color: inherit;
-        transition: transform 180ms ease, box-shadow 180ms ease; /* smooth hover */
-      }
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 18px 36px rgba(20,20,20,0.12);
-      }
-      .card.highlight {
-        border-top: 4px solid var(--primary);
-      }
-      .card p, .card li {
-        font-size: 0.92rem;
-        color: var(--muted);
-      }
-      .card h3 {
-        margin: 8px 0 10px;
-        font-size: 1.12rem;
-        color: var(--text);
-      }
-      ul.clean {
-        list-style: none;
-        padding: 0;
-        margin: 12px 0 0;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      li.with-icon {
-        position: relative;
-        padding-left: 8px;
-      }
-      .price-line {
-        display: flex;
-        align-items: baseline;
-        gap: 5px;
-        margin-top: 18px;
-      }
-      .price-line strong {
-        font-size: 1.7rem;
-        color: var(--dark);
-      }
-      .price-line span {
-        font-size: 0.8rem;
-        color: var(--muted);
-      }
-      .mini-tag {
-        display: inline-block;
-        margin-top: 8px;
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: var(--primary);
-      }
+      /* ===== LEGACY FARMS — PREMIUM BOX CARDS ===== */
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
-        margin-top: 12px;
-      }
-      .variety-card {
-        border: 1px solid rgba(0,0,0,0.08);
-        background: #fff;
-        border-radius: 12px;
-        padding: 16px;
-      }
-            /* 🎨 Forces the final crown jewel card to anchor the grid beautifully on desktop views */
-      @media (min-width: 821px) {
-        .full-span-card {
-          grid-column: span 2;
-        }
-      }
-      .crop-art {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f5f9f1;
-        border: 1px solid #e3ebdf;
-        width: 100%;
-        height: 150px;
-        border-radius: 8px;
-        font-size: 2.5rem;
-        margin-bottom: 12px;
-      }
-      .kid-badge {
-        display: inline-block;
-        background: var(--accent);
-        color: white;
-        border-radius: 3px;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        padding: 4px 6px;
-        margin-bottom: 8px;
-      }
+.lf-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 16px;
+  font-family: inherit;
+  color: #26382b;
+}
+
+.lf-box-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px;
+  overflow: hidden;
+  background: #fffdf7;
+  border: 1px solid #e5e5d9;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(38, 56, 43, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lf-box-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(38, 56, 43, 0.12);
+}
+
+.lf-box-card--featured {
+  border: 2px solid #355b40;
+  background: linear-gradient(160deg, #fffdf7 0%, #f2f5eb 100%);
+  box-shadow: 0 12px 32px rgba(38, 56, 43, 0.13);
+}
+
+.lf-box-ribbon {
+  align-self: flex-start;
+  margin: -32px 0 24px -28px;
+  padding: 10px 18px;
+  background: #355b40;
+  color: #ffffff;
+  border-radius: 0 0 12px 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.lf-box-eyebrow {
+  margin: 0 0 8px;
+  color: #66805c;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.lf-box-title {
+  margin: 0 0 10px;
+  color: #26382b;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  font-weight: 750;
+}
+
+.lf-box-price {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 8px 0 18px;
+  color: #355b40;
+}
+
+.lf-box-price-amount {
+  font-size: clamp(2.6rem, 5vw, 3.5rem);
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -2px;
+}
+
+.lf-box-price-period {
+  color: #687367;
+  font-size: 0.95rem;
+}
+
+.lf-box-description {
+  margin: 0 0 22px;
+  color: #596458;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.lf-box-divider {
+  width: 100%;
+  height: 1px;
+  margin: 0 0 20px;
+  background: #e4e6da;
+  border: 0;
+}
+
+.lf-box-includes-title {
+  margin: 0 0 14px;
+  color: #344c37;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.lf-box-list {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.lf-box-list li {
+  position: relative;
+  padding-left: 28px;
+  color: #455347;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.lf-box-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #52774d;
+  font-weight: 900;
+}
+
+.lf-box-note {
+  margin: auto 0 22px;
+  padding-top: 14px;
+  color: #72796e;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.lf-box-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 18px;
+  border: 1px solid #355b40;
+  border-radius: 12px;
+  background: transparent;
+  color: #355b40 !important;
+  font-size: 0.96rem;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none !important;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lf-box-button:hover {
+  background: #355b40;
+  color: #ffffff !important;
+}
+
+.lf-box-card--featured .lf-box-button {
+  background: #355b40;
+  color: #ffffff !important;
+}
+
+.lf-box-card--featured .lf-box-button:hover {
+  background: #263f2d;
+}
+
+.lf-box-footnote {
+  max-width: 700px;
+  margin: 0 auto 32px;
+  padding: 0 20px;
+  color: #72796e;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .lf-boxes {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 28px auto;
+    padding: 0 14px;
+  }
+
+  .lf-box-card {
+    padding: 28px 22px;
+  }
+
+  .lf-box-ribbon {
+    margin: -28px 0 22px -22px;
+  }
+
+  .lf-box-card--featured {
+    order: -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lf-box-card,
+  .lf-box-button {
+    transition: none;
+  }
+
+  .lf-box-card:hover {
+    transform: none;
+  }
+}
       .recipe-card .label {
         display: inline-block;
         padding: 4px 8px;
@@ -831,61 +933,104 @@
         <span style="font-size: 0.92rem; color: #5d564f;"> Get a neighbor to sign up and lock in <strong>$6.00 OFF</strong> your next harvest delivery drop!</span>
       </div>
 
-      <div class="pricing-grid">
-                <!-- Tier 1 -->
-        <a class="card" href="https://tally.so" target="_blank" rel="noopener" role="button">
-          <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#666; font-weight:700;">Fresh single variety</span>
-          <h3>The Simple Weekly Rotation</h3>
-          <p>A fast-turn rotating spotlight featuring our indoor facility's peak high-velocity crops. Simple, clean, and unblended.</p>
-          <ul class="clean">
-            <li>📦 Two packed 2oz clamshells</li>
-            <li>🔄 <strong>4-Week Swap:</strong> Alternates between Broccoli, Radish, Arugula, or Cress</li>
-            <li>🧠 <strong>Nutritional Power:</strong> Packed with active antioxidants and enzymes to maximize cell health and defense lines.</li>
-          </ul>
-          <div class="price-line"><strong>$12</strong><span>/ per delivery</span></div>
-          <div class="mini-tag">Weekly or bi-weekly • Fast rotation</div>
-        </a>
+      <!-- ===== LEGACY FARMS — BOX OPTIONS ===== -->
 
-                      <!-- Tier 2 -->
-        <a class="card highlight" href="https://tally.so" target="_blank" rel="noopener" role="button">
-          <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:var(--primary); font-weight:800;">Home chef favorite</span>
-          <h3>The Home Chef's Signature Blends</h3>
-          <p>Our flagship flavor toolkit. Expertly curated mixes designed for everyday meals, artisan salads, and morning smoothies.</p>
-          <ul class="clean">
-            <li>📦 Four packed 2oz clamshells total</li>
-            <li>🥗 <strong>2x Mild Mix:</strong> Sweet Speckled Pea Shoots + Waltham Broccoli</li>
-            
-            <!-- 🌶️ THE CORRECT UPDATE ROW: -->
-            <li>🌶️ <strong>2x Gourmet Spicy Salad Mix:</strong> Peppery Arugula + Daikon Radish + Spicy Field Cress &amp; Mustard</li>
-            
-            <li>🥦 <strong>Nutritional Power:</strong> Packs up to <strong style="color: var(--primary);">40x more nutrient density</strong> than mature grocery store lettuce.</li>
-          </ul>
-          <div class="price-line"><strong>$20</strong><span>/ per delivery</span></div>
-          <div class="mini-tag">Save $4 per drop • Culinary mix kit</div>
-        </a>
+<section class="lf-boxes" aria-label="Legacy Farms microgreen boxes">
 
-        <!-- Tier 3 -->
-        <a class="card premium-card" href="https://tally.so" target="_blank" rel="noopener" role="button">
-          <div class="lock-badge" aria-hidden="true">🔒</div>
-          <span style="font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#8a6d3b; font-weight:800;">Private allocation</span>
-          <h3>The Farmer's Private Allocation</h3>
-          <p>Our highest-volume option. Unlocks total customization and exclusive single-variety access to our slowest-growing, heaviest-yield varieties.</p>
-          <ul class="clean">
-            <li>📦 Six packed 2oz clamshells total</li>
-            <li>🔒 Unlocks unblended <strong>Premium Sunflower</strong> &amp; Pea Shoots</li>
-            <li>🎯 Fully customizable mix selections via checkout</li>
-            <li>🧪 <strong>Nutritional Power:</strong> Stuffed with complete plant proteins, rich enzymes, and heavy raw zinc minerals.</li>
-          </ul>
-          <div class="price-line"><strong style="color:#8a6d3b;">$30</strong><span>/ per delivery</span></div>
-          <div class="mini-tag" style="color:#8a6d3b;">Premium variety vault access</div>
-        </a>
-      </div>
-      <div style="text-align:center; margin:28px 0 8px; padding:20px 16px; background:#fcfcfc; border:1px dashed var(--border); border-radius:10px;">
-        <p style="margin:0 0 8px; font-size:1rem; font-weight:700;">Just want to try a single harvest?</p>
-        <p style="margin:0 auto 12px; max-width:620px; color:#555;">Order a Saturday Sample Box for $12 — we grow to order, so each sample is planted for the next delivery cycle.</p>
-        <a class="btn-secondary" href="https://tally.so/r/44gX9B" target="_blank" rel="noopener" role="button">Order a Saturday Sample Box ($12)</a>
-      </div>
+  <!-- EVERYDAY BOX -->
+  <article class="lf-box-card">
+    <p class="lf-box-eyebrow">Fresh from our harvest</p>
 
+    <h2 class="lf-box-title">Everyday Box</h2>
+
+    <div class="lf-box-price">
+      <span class="lf-box-price-amount">$12</span>
+      <span class="lf-box-price-period">per box</span>
+    </div>
+
+    <p class="lf-box-description">
+      A simple, fresh way to bring locally grown microgreens
+      into your everyday meals.
+    </p>
+
+    <hr class="lf-box-divider">
+
+    <p class="lf-box-includes-title">What you'll receive</p>
+
+    <ul class="lf-box-list">
+      <li>Two 2 oz containers</li>
+      <li>4 oz of fresh microgreens in total</li>
+      <li>Two varieties selected from our rotating harvest</li>
+      <li>Great for salads, sandwiches, wraps and bowls</li>
+    </ul>
+
+    <p class="lf-box-note">
+      Varieties vary with the harvest and what's ready to enjoy.
+      Your box is selected for freshness.
+    </p>
+
+    <a
+      class="lf-box-button"
+      href="https://tally.so"
+      target="_blank"
+      rel="noopener noreferrer">
+      Choose Everyday Box
+    </a>
+  </article>
+
+  <!-- FEATURED $20 KITCHEN BOX -->
+  <article class="lf-box-card lf-box-card--featured">
+    <span class="lf-box-ribbon">Featured Box</span>
+
+    <p class="lf-box-eyebrow">A little more goodness</p>
+
+    <h2 class="lf-box-title">Kitchen Box</h2>
+
+    <div class="lf-box-price">
+      <span class="lf-box-price-amount">$20</span>
+      <span class="lf-box-price-period">per box</span>
+    </div>
+
+    <p class="lf-box-description">
+      A generous harvest for households that love fresh,
+      flavorful ingredients ready for the kitchen.
+    </p>
+
+    <hr class="lf-box-divider">
+
+    <p class="lf-box-includes-title">What you'll receive</p>
+
+    <ul class="lf-box-list">
+      <li>Four 2 oz containers</li>
+      <li>8 oz of fresh microgreens in total</li>
+      <li>A varied selection based on the available harvest</li>
+      <li>Perfect for salads, sandwiches, grain bowls and more</li>
+    </ul>
+
+    <p class="lf-box-note">
+      We aim for variety, but exact crops depend on what's
+      ready to harvest. Multiple containers of one variety
+      may occasionally be included.
+    </p>
+
+    <a
+      class="lf-box-button"
+      href="https://tally.so"
+      target="_blank"
+      rel="noopener noreferrer">
+      Choose Kitchen Box
+    </a>
+  </article>
+
+</section>
+
+<p class="lf-box-footnote">
+  Locally grown in McCordsville, Indiana. Fresh neighborhood
+  delivery. No long-term commitment.
+</p>
+
+<!-- ===== END BOX OPTIONS ===== -->
+      
            <h2 id="varieties">Our varieties</h2>
       <div class="grid">
         <!-- Crop 1: Broccoli -->
