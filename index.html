@@ -603,18 +603,22 @@ li.with-icon {
 .price-line {
   display: flex;
   align-items: baseline;
-  gap: 5px;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-top: 18px;
-}
-
-.price-line strong {
-  font-size: 1.7rem;
-  color: var(--dark);
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
 }
 
 .price-line span {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--muted);
+}
+
+.price-line strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
 }
 
 .mini-tag {
